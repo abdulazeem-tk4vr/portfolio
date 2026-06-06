@@ -1,0 +1,123 @@
+# Abdul Azeem Shaik — Portfolio
+
+> Software Engineer specializing in distributed systems, AI security, and blockchain infrastructure.
+
+## Identity
+- Name: Abdul Azeem Shaik
+- Title: Software Engineer
+- Tagline: Distributed systems · AI security · Blockchain infrastructure
+- Location: Fremont, California, United States
+- Email: sabdulazeem01@gmail.com
+- GitHub: https://github.com/abdulazeem-tk4vr
+- LinkedIn: https://www.linkedin.com/in/abdulazeem-shaik
+- CV: /AbdulAzeemShaik_CV.pdf
+- Work authorization: US Citizen, open to relocation, available immediately
+
+## Summary
+Software Engineer with 3+ years building scalable distributed systems and published researcher (Google AI funded, ACM JCSS). Currently researching adversarial attacks on multi-agentic AI systems in cybersecurity workflows at Georgia Tech. Contributed to the mainnet launch of Shardeum — the world's first sharded autoscaling EVM-compatible L1 blockchain (80M+ transactions, 150K+ validators).
+
+## Current roles
+- Researcher — AI Security, Georgia Institute of Technology (School of Cybersecurity and Privacy), Apr 2026 – Present
+- Software Engineer — Distributed Systems, Liberdus, Jan 2026 – Present
+
+## Experience
+
+### Georgia Institute of Technology — Researcher, AI Security (Apr 2026 – Present)
+- Investigating adversarial attacks on multi-agentic AI systems in cybersecurity workflows, targeting SOC pipelines with agentic orchestration and generative AI threat surfaces.
+- Building evaluation pipelines to assess robustness of AI-driven SOC workflows against prompt injection, tool misuse, and inter-agent manipulation.
+
+### Liberdus — Software Engineer, Distributed Systems (Jan 2026 – Present)
+- Built the Liberdus BSC bridge and cross-chain payment platform; reduced transaction time to finality by 85%.
+- Cut historical data sync latency by 63%; reduced heap memory usage by 50% through RPC response caching.
+- Improved transaction latency by 38%; built horizontally scalable blockchain indexing microservice.
+- Implemented cryptographic libraries in Rust for identity verification and threshold signatures; led DevSecOps as primary security maintainer.
+- https://liberdus.com
+
+### Shardeum — Senior Software Engineer (Aug 2022 – Jan 2026)
+- Built horizontally scalable monitoring handling 10,000+ req/sec with shared global state and real-time dashboards.
+- Reduced communication latency by 34% (82 ms → 54 ms); boosted RPC throughput 60% with WebSocket distribution.
+- Achieved 14× speedup on ECDSA verification (10 ms → 700 μs); reduced cryptographic latency 29% via libsodium migration.
+- Discovered and fixed critical bugs in Proof of Quorum consensus; contributed to mainnet launch (80M+ transactions, 150K+ validators).
+- https://shardeum.org
+
+### BITS Pilani Hyderabad — Researcher, HCI & Applied AI (Aug 2021 – Jul 2022)
+- Published "AI-based Market Intelligence Systems for Farmer Collectives" — funded by Google AI for Social Good, ACM JCSS.
+- Deployed production Android app with integrated forecasting models; validated with real market data and farmer feedback.
+
+## Projects
+
+### Multi-Agentic BFT
+- URL: https://github.com/abdulazeem-tk4vr/multi-agentic-bft
+- Description: Research framework for evaluating Byzantine fault tolerance in multi-agentic AI systems — probing adversarial coordination, tool misuse, and consensus safety in agent orchestration pipelines.
+- Tags: AI Security, Multi-Agent Systems, Python
+
+### Reverse Proxy
+- URL: https://github.com/abdulazeem-tk4vr/reverse-proxy
+- Description: RPC reverse proxy with integrated node discovery and load balancing for sharded validator networks, improving request distribution and network resilience under high throughput.
+- Tags: TypeScript, Node.js, RPC, Load Balancing
+
+### Farmers Collective
+- URL: https://github.com/abdulazeem-tk4vr/farmers_collective
+- Funding: Google AI for Social Good
+- Description: Production Android app integrating time-series forecasting models for crop price predictions, built for farmer collectives. Funded by Google AI for Social Good; validated with real market data and farmer feedback. Published in ACM JCSS and presented at ACM COMPASS '23.
+- Tags: Android, Kotlin, ML, Firebase
+
+## Open source
+
+### Shardeum (Mainnet L1)
+Autoscaling EVM blockchain with dynamic state sharding. ~$24M raised (Jane Street, Spartan Group, CoinGecko Ventures). Mainnet live since 2025 — scaled to 80M+ transactions and 150K+ validators during tenure.
+- Shardeum Core: https://github.com/shardeum/core — Shardus Core distributed ledger engine (consensus, state management, validator coordination)
+- Shardeum Archiver: https://github.com/shardeum/archiver — Archiver node storing complete cycle chain and historical state data
+- Shardeum: https://github.com/shardeum/shardeum — EVM-compatible autoscaling L1 node software
+- JSON-RPC Server: https://github.com/shardeum/json-rpc-server — JSON-RPC gateway; WebSocket distribution boosted throughput 60%
+- lib-net: https://github.com/shardeum/lib-net — High-performance TCP library for JSON messaging; reduced latency 34% (82 ms → 54 ms)
+- Blockscout: https://github.com/shardeum/blockscout — Shardeum fork of Blockscout block explorer
+
+### Farcaster (Protocol · Dev infra)
+Decentralized social protocol for onchain identity and feeds. $180M raised from Paradigm and a16z (~$1B valuation). ~250K monthly active users and 100K+ funded wallets; acquired by Neynar in 2026 with a developer-first pivot.
+- Farcaster Snapchain: https://github.com/farcasterxyz/snapchain — Enhanced event filtering and querying APIs with timestamp and block-based filters
+
+### Liberdus (Mainnet · Messaging)
+Quantum-secure decentralized messaging and payments on Shardus. Community-funded model with no VC or pre-mine (210M LIB fixed supply). Cross-chain bridge and TSS signing infrastructure live.
+- Liberdus TSS Signer: https://github.com/Liberdus/tss-signer — Multi-network threshold signature signer with configurable routing, gas estimation, and Ed25519 signing in Rust
+
+## Research
+- Agentic AI Security — Georgia Tech, School of Cybersecurity and Privacy (2026 – Present): Building multi-agentic AI systems to secure organizations against adversarial cybersecurity attacks and generative AI threats.
+- AI-based Market Intelligence for Farmer Collectives — BITS Pilani · Google AI for Social Good (2021 – 2022): Integrated time-series forecasting into a native Android app for crop price predictions. Published in ACM JCSS; presented at ACM COMPASS '23.
+- Federated Learning in IoT — BITS Pilani (2022): Surveyed ML optimization for resource-constrained IoT with LoRA and federated learning.
+- Security of Low-Cost Android Devices — BITS Pilani (2021 – 2022): Static/dynamic analysis and Wireshark PCAP traffic analysis identifying insecure cross-border communications and permission misuse.
+
+## Featured research
+- AI-based Market Intelligence for Farmer Collectives — Google AI for Social Good funded project. Integrated forecasting models into a production Android app for farmers. Published in ACM JCSS and presented at ACM COMPASS '23.
+
+## Skills
+- Languages: Rust, TypeScript, Python, C++, Java
+- Core: Distributed Systems, Performance Optimization, Consensus Protocols, Cryptography, AI Security
+- Backend: Node.js, Express.js, REST, JWT, WebSockets, JSON-RPC, gRPC
+- Frontend: React.js, Vue.js, Nuxt.js, JavaScript
+- Infrastructure: Docker, Kubernetes, GitHub Actions, PostgreSQL, SQLite, Firebase
+- ML & Data: XGBoost, Pandas, NumPy, Matplotlib
+
+## Education
+- M.S. Computer Science (AI specialization), Georgia Institute of Technology — Present
+- B.E. Electronics and Communication Engineering, BITS Pilani Hyderabad, 2023
+
+## Certifications
+- Ultimate Rust 2: Intermediate & Advanced Concepts
+- Ultimate Rust Crash Course
+- AWS & Udacity Machine Learning Scholarship
+- Google Cloud — Create and Manage Cloud Resources
+- Duke University — Java Programming
+
+## References
+- Omar Syed — CTO, Shardus & Liberdus — https://linkedin.com/in/omarsyed1
+- Marc Hanson — Co-Founder & Partner, Super Mega Lab — https://linkedin.com/in/marc-hanson-579469a
+
+## Site sections
+- /#home — Introduction
+- /#experience — Work history
+- /#projects — Personal projects
+- /#opensource — Open source contributions
+- /#research — Publications and research
+- /#about — Bio, skills, education
+- /#contact — Contact information
