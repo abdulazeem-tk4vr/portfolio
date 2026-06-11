@@ -49,9 +49,9 @@ export default function App() {
           >
             <Hero />
             <Experience />
+            <Research />
             <Projects />
             <OpenSource />
-            <Research />
             <About />
             <Contact />
             <Footer />

@@ -14,14 +14,14 @@ const currently = [
     detail: "AI specialization",
   },
   {
-    title: "AI Security Researcher",
-    org: "School of Cybersecurity and Privacy",
-    detail: "Adversarial multi-agentic SOC workflows",
+    title: "Research — Agentic AI Security",
+    org: "Georgia Tech · School of Cybersecurity and Privacy",
+    detail: "Adversarial threats in LLMs & multi-agentic systems",
   },
   {
-    title: "Software Engineer",
+    title: "Senior Software Engineer",
     org: "Liberdus",
-    detail: "Cross-chain infrastructure · TSS · DevSecOps",
+    detail: "Cross-chain payments · TSS · DevSecOps",
   },
 ];
 
@@ -33,7 +33,7 @@ export function About() {
           id="about-heading"
           label="Background"
           title="About"
-          intro="Distributed systems engineer and AI security researcher — 3+ years shipping production infrastructure from blockchain mainnets to cross-chain bridges."
+          intro="Distributed systems engineer and AI security researcher — 4+ years shipping production infrastructure from blockchain mainnets to cross-chain bridges."
         />
       </Reveal>
 

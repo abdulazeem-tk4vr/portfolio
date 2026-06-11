@@ -1,35 +1,74 @@
 import { openSourceGroups } from "../data/profile";
 import { RepoList } from "./RepoList";
-import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Typography";
+
+type OrgTheme = {
+  orgCard: string;
+  orgName: string;
+  orgBadge: string;
+  repoCard: string;
+  repoTag: string;
+};
+
+const ORG_THEMES: Record<string, OrgTheme> = {
+  Shardeum: {
+    orgCard: "org-theme-shardeum",
+    orgName: "org-name-shardeum",
+    orgBadge: "org-badge-shardeum",
+    repoCard: "repo-theme-shardeum",
+    repoTag: "repo-tag-shardeum",
+  },
+  Farcaster: {
+    orgCard: "org-theme-farcaster",
+    orgName: "org-name-farcaster",
+    orgBadge: "org-badge-farcaster",
+    repoCard: "repo-theme-farcaster",
+    repoTag: "repo-tag-farcaster",
+  },
+  Liberdus: {
+    orgCard: "org-theme-liberdus",
+    orgName: "org-name-liberdus",
+    orgBadge: "org-badge-liberdus",
+    repoCard: "repo-theme-liberdus",
+    repoTag: "repo-tag-liberdus",
+  },
+};
+
+const DEFAULT_THEME: OrgTheme = {
+  orgCard: "org-theme-default",
+  orgName: "org-name-default",
+  orgBadge: "org-badge-default",
+  repoCard: "repo-theme-default",
+  repoTag: "repo-tag-default",
+};
 
 function OrgContextCard({
   org,
   url,
   stage,
   context,
+  theme,
 }: {
   org: string;
   url: string;
   stage: string;
   context: string;
+  theme: OrgTheme;
 }) {
   return (
-    <div className="org-context-card lg:flex lg:items-start lg:justify-between lg:gap-8">
-      <div className="min-w-0 shrink-0 lg:max-w-xs">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lg font-semibold tracking-[-0.02em] text-accent-navy underline decoration-accent-blue/25 underline-offset-2 transition hover:text-accent-blue hover:decoration-accent-blue/60"
-          >
-            {org}
-          </a>
-          <span className="period-badge">{stage}</span>
-        </div>
+    <div className={`org-context-card ${theme.orgCard}`}>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`org-context-name ${theme.orgName}`}
+        >
+          {org}
+        </a>
+        <span className={`org-stage-badge ${theme.orgBadge}`}>{stage}</span>
       </div>
-      <p className="mt-3 text-[14px] leading-[1.72] text-ink-muted lg:mt-0 lg:flex-1 lg:text-right">{context}</p>
+      <p className="org-context-copy">{context}</p>
     </div>
   );
 }
@@ -37,36 +76,37 @@ function OrgContextCard({
 export function OpenSource() {
   return (
     <section id="opensource" className="section-block section-divider" aria-labelledby="opensource-heading">
-      <Reveal>
-        <SectionHeader
-          id="opensource-heading"
-          label="Contributions"
-          title="Open Source"
-          intro="Contributions across blockchain mainnet infrastructure, decentralized social protocols, and cross-chain messaging systems."
-        />
-      </Reveal>
+      <SectionHeader
+        id="opensource-heading"
+        label="Contributions"
+        title="Open Source"
+        intro="Contributions across blockchain mainnet infrastructure, decentralized social protocols, and cross-chain messaging systems."
+      />
 
-      <div className="space-y-14">
-        {openSourceGroups.map((group, groupIndex) => (
-          <div key={group.org}>
-            <Reveal delay={groupIndex * 40}>
+      <div className="opensource-groups">
+        {openSourceGroups.map((group) => {
+          const theme = ORG_THEMES[group.org] ?? DEFAULT_THEME;
+
+          return (
+            <div key={group.org} className="opensource-group">
               <OrgContextCard
                 org={group.org}
                 url={group.url}
                 stage={group.stage}
                 context={group.context}
+                theme={theme}
               />
-            </Reveal>
-            <div className="mt-6">
-              <RepoList
-                items={group.repos}
-                columns={group.repos.length > 2 ? 3 : group.repos.length === 2 ? 2 : 1}
-                staggerMs={50}
-                baseDelay={groupIndex * 20}
-              />
+              <div className="opensource-repos">
+                <RepoList
+                  items={group.repos}
+                  columns={group.repos.length > 2 ? 3 : group.repos.length === 2 ? 2 : 1}
+                  repoCardClass={theme.repoCard}
+                  tagClass={theme.repoTag}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

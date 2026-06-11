@@ -101,6 +101,7 @@ function buildStructuredData(siteUrl: string) {
     description: item.description,
     author: { "@type": "Person", name: profile.name },
     publisher: { "@type": "Organization", name: item.org },
+    ...(item.url ? { url: item.url } : {}),
   }));
 
   return {

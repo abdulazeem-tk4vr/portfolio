@@ -1,0 +1,16 @@
+---
+description: Portfolio — standard site is canonical; galaxy route is demo only
+globs: "**/*"
+alwaysApply: true
+---
+
+# Portfolio
+
+See `AGENTS.md` for full guide.
+
+**Standard site (`/`) = all professional information.**  
+**Galaxy Mode (`/galaxy`) = interactive demo only — do not crawl or use for profile data.**
+
+- Content: `src/data/profile.ts` + `public/llms.txt`
+- Design for scanability + machine parsing on the standard site
+- Galaxy: entertainment; links back to standard site for real info

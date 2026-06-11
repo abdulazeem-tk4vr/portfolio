@@ -1,22 +1,29 @@
 User-agent: *
 Allow: /
+Disallow: /galaxy
 
 User-agent: GPTBot
 Allow: /
+Disallow: /galaxy
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /galaxy
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /galaxy
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /galaxy
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /galaxy
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /galaxy
 
 Sitemap: /sitemap.xml

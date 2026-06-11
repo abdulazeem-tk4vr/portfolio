@@ -1,21 +1,22 @@
 import { projects } from "../data/profile";
-import { RepoList } from "./RepoList";
-import { Reveal } from "./Reveal";
+import { ProjectCard } from "./ProjectCard";
 import { SectionHeader } from "./Typography";
 
 export function Projects() {
   return (
     <section id="projects" className="section-block section-divider" aria-labelledby="projects-heading">
-      <Reveal>
-        <SectionHeader
-          id="projects-heading"
-          label="Personal"
-          title="Projects"
-          intro="Independent work spanning AI security research, distributed systems tooling, and applied ML for social impact."
-        />
-      </Reveal>
+      <SectionHeader
+        id="projects-heading"
+        label="Selected work"
+        title="Projects"
+        intro="Engineering case studies with technologies, challenges, and measurable outcomes — consensus systems, RPC infrastructure, and applied ML."
+      />
 
-      <RepoList items={projects} columns={3} />
+      <div className="project-list">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.repo} project={project} index={index} />
+        ))}
+      </div>
     </section>
   );
 }
