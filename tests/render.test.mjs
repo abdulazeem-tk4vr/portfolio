@@ -95,7 +95,7 @@ test("portfolio renders complete navigation, current facts, and accessible proje
   assert.doesNotMatch(hero, /150K|validator registrations/);
   assert.doesNotMatch(hero, /85% shorter finality|Reduction in transaction finality time at Liberdus/);
   assert.match(hero, /Applied AI CyberSec/);
-  assert.match(hero, /Systems beat frontier LLMs on SecOps benchmarks/);
+  assert.match(hero, /Agentic systems beat frontier LLMs on Security-Ops benchmarks from Microsoft AI/);
   assert.match(hero, /10,000 requests\/second/);
   const soc = research.find(item => item.id === "soc-research");
   assert.equal(soc.description.split("\n\n").length, 3);
@@ -157,7 +157,7 @@ test("portfolio renders complete navigation, current facts, and accessible proje
   }
   assert.doesNotMatch(summary, /outperformed frontier|Excytin|Multi.Agentic|Open to anything interesting|linkedin.com\/in\/marc-hanson/);
   assert.ok(summary.includes(profile.workAuth));
-  assert.match(summary, /Applied AI CyberSec: Systems beat frontier LLMs on SecOps benchmarks/);
+  assert.match(summary, /Applied AI CyberSec: Agentic systems beat frontier LLMs on Security-Ops benchmarks from Microsoft AI/);
   assert.doesNotMatch(summary, /My background includes|I contribute to open source infrastructure/);
   assert.ok(summary.includes(`- Location: ${profile.location}`));
   assert.doesNotMatch(summary, /AWS & Udacity Machine Learning Scholarship/);

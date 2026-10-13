@@ -24,7 +24,7 @@ AI and systems engineer with 4+ years of production experience in Python, TypeSc
 
 Headline impact:
 - 80M+ transactions: Supported by Shardeum mainnet and testnet infrastructure
-- Applied AI CyberSec: Systems beat frontier LLMs on SecOps benchmarks
+- Applied AI CyberSec: Agentic systems beat frontier LLMs on Security-Ops benchmarks from Microsoft AI
 - 10,000 requests/second: Handled by a purpose-built distributed node monitoring service
 
 ## Current work

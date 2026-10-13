@@ -49,7 +49,7 @@ export const impactHighlights = [
   {
     title: "Applied AI CyberSec",
     detail:
-      "Systems beat frontier LLMs on SecOps benchmarks",
+      "Agentic systems beat frontier LLMs on Security-Ops benchmarks from Microsoft AI",
   },
   {
     title: "10,000 requests/second",
