@@ -235,7 +235,7 @@ export const openSourceGroups: OpenSourceGroup[] = [
         name: "MAPT",
         repo: "https://github.com/redhat-developer/mapt",
         prUrl: "https://github.com/redhat-developer/mapt/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr",
-        description: "Sanitized host and username fields in AWS and Azure secrets so newline characters no longer break environment provisioning.",
+        description: "Strengthened AWS and Azure environment provisioning by normalizing host and username values in secrets, eliminating failures caused by embedded newline characters.",
         tags: ["Cloud Infrastructure", "Kubernetes", "AWS"],
       },
     ],
