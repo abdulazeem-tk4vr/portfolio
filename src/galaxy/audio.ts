@@ -62,7 +62,7 @@ export function createGalaxyAudio(): GalaxyAudio {
     ambientGain.connect(masterGain);
 
     sfxGain = context.createGain();
-    sfxGain.gain.value = SFX_MASTER;
+    sfxGain.gain.value = sfxMuted ? 0 : SFX_MASTER;
     sfxGain.connect(masterGain);
 
     thrustGain = context.createGain();

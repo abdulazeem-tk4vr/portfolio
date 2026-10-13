@@ -1,60 +1,31 @@
-import { useState } from "react";
+import { BrandLogo } from "./BrandLogo";
 import type { experience } from "../data/profile";
-import { BulletList, PeriodBadge } from "./Typography";
-
-const VISIBLE_HIGHLIGHTS = 5;
 
 type ExperienceEntry = (typeof experience)[number];
 
 export function ExperienceCard({ job }: { job: ExperienceEntry }) {
-  const [expanded, setExpanded] = useState(false);
-  const hasMore = job.highlights.length > VISIBLE_HIGHLIGHTS;
-  const visibleHighlights = expanded
-    ? job.highlights
-    : job.highlights.slice(0, VISIBLE_HIGHLIGHTS);
-  const hiddenCount = job.highlights.length - VISIBLE_HIGHLIGHTS;
-
   return (
-    <article className="content-card flex h-full flex-col" itemScope itemType="https://schema.org/OrganizationRole">
-      <div className="card-header">
-        <div className="min-w-0 flex-1">
-          <h3 className="card-title" itemProp="roleName">
-            {job.role}
-          </h3>
-          <p className="card-subtitle">
+    <article className="experience-card" itemScope itemType="https://schema.org/OrganizationRole">
+      <details>
+      <summary className="experience-toggle">
+      <div className="experience-identity">
+        <BrandLogo src={job.logo} />
+        <div className="experience-identity-text">
+          <h3 className="card-title" itemProp="roleName">{job.role}</h3>
+          <p className="experience-company" itemProp="worksFor">
             {"url" in job && job.url ? (
-              <a
-                href={job.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-link"
-                itemProp="worksFor"
-              >
-                {job.company}
-              </a>
-            ) : (
-              <span itemProp="worksFor">{job.company}</span>
-            )}
-            <span className="text-ink-faint"> · {job.location}</span>
+              <a href={job.url} target="_blank" rel="noopener noreferrer" className="company-link">{job.company}</a>
+            ) : job.company}
           </p>
-          {job.org && <p className="mt-1 text-xs leading-relaxed text-ink-faint">{job.org}</p>}
+          <p className="card-subtitle">{job.location}</p>
+          {job.org && <p className="card-subtitle">{job.org}</p>}
         </div>
-        <PeriodBadge>{job.period}</PeriodBadge>
       </div>
+      <svg className="experience-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+      </summary>
 
-      <div className="card-body flex-1">
-        <BulletList items={visibleHighlights} itemProp="description" twoColumn />
-        {hasMore && (
-          <button
-            type="button"
-            className="expand-toggle"
-            aria-expanded={expanded ? "true" : "false"}
-            onClick={() => setExpanded((open) => !open)}
-          >
-            {expanded ? "Show less" : `Show ${hiddenCount} more`}
-          </button>
-        )}
-      </div>
+      <p className="job-summary" itemProp="description">{job.summary}</p>
+      {job.researchAnchor && <a href={`#${job.researchAnchor}`} className="inline-link research-details-link">Research details</a>}
 
       <div className="card-footer">
         {job.tags.map((tag) => (
@@ -63,6 +34,7 @@ export function ExperienceCard({ job }: { job: ExperienceEntry }) {
           </span>
         ))}
       </div>
+      </details>
     </article>
   );
 }

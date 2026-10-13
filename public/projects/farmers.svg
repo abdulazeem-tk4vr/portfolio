@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <title>Farmer market intelligence workflow</title>
+  <desc>Market data flows through forecasting and recommendations to help farmers make decisions.</desc>
+  <rect width="800" height="450" fill="#eef4ff"/>
+  <g fill="none" stroke="#c5d5ef"><path d="M0 90H800M0 180H800M0 270H800M0 360H800M100 0V450M200 0V450M300 0V450M400 0V450M500 0V450M600 0V450M700 0V450"/></g>
+  <text x="42" y="44" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" fill="#536b8d">MARKET SIGNALS · PRACTICAL GUIDANCE</text>
+  <path d="M196 225H225M389 225H420M584 225H614" fill="none" stroke="#4076df" stroke-width="2"/>
+  <g fill="#fff" stroke="#c1d1eb"><rect x="32" y="147" width="164" height="156" rx="16"/><rect x="225" y="147" width="164" height="156" rx="16"/><rect x="420" y="147" width="164" height="156" rx="16"/></g>
+  <rect x="614" y="147" width="154" height="156" rx="16" fill="#2459be"/>
+  <g stroke="#4076df" stroke-width="2" fill="none"><ellipse cx="114" cy="188" rx="21" ry="8"/><path d="M93 188V214C93 225 135 225 135 214V188M93 201C93 212 135 212 135 201M286 221V184H328M293 207H303M308 199H318M323 190H328M482 184H523V222H482ZM490 197H515M490 206H509M490 215H502"/></g>
+  <g stroke="#fff" stroke-width="2" fill="none"><circle cx="691" cy="195" r="12"/><path d="M667 228C667 207 715 207 715 228"/></g>
+  <g font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#152b4b"><text x="114" y="259">Market data</text><text x="307" y="259">Forecasting</text><text x="502" y="259" font-size="16">Recommendations</text><text x="691" y="259" fill="#fff">Farmer</text></g>
+</svg>

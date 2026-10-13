@@ -1,7 +1,7 @@
 import {
   education,
   experience,
-  openSourceGroups,
+  openSource,
   profile,
   projects,
   research,
@@ -14,7 +14,7 @@ export type GalaxyNodeData = {
   planetLabel: string;
   planetDetail: string;
   summary: string;
-  highlights: string[];
+  highlights: (string | { title: string; description: string })[];
   tags?: string[];
   href: string;
   color: number;
@@ -23,19 +23,18 @@ export type GalaxyNodeData = {
 };
 
 const summaries: Record<string, string> = {
-  home: `${profile.intro} Fly the orbit to explore experience, projects, open-source contributions, research publications, background, and contact — each planet maps to a section of this portfolio.`,
+  home: "",
   experience:
-    "Three-plus years shipping production distributed systems — from Shardeum mainnet (80M+ transactions, 150K+ validators) to Liberdus cross-chain messaging and Georgia Tech AI security research on adversarial multi-agent SOC workflows.",
+    "Current engineering work at Liberdus follows Shardeum infrastructure work and completed cybersecurity research at Georgia Tech. Visit the standard site for the full career timeline.",
   projects:
-    "Hands-on builds spanning AI security, blockchain infra, and applied ML — a BFT evaluation framework for agentic systems, an RPC reverse proxy for sharded validator networks, and a Google AI–funded Android app for farmer price forecasting.",
-  opensource:
-    "Core contributions across Shardeum's sharded L1 (consensus, RPC, lib-net), Farcaster Snapchain protocol APIs, and Liberdus threshold-signature signing — infrastructure that has processed 80M+ mainnet transactions.",
+    "Three selected projects explore agent consensus, market intelligence for farmers, and trading strategy evaluation.",
+  opensource: "",
   research:
-    "Published and in-progress work in AI security, HCI, and federated learning — from adversarial attacks on multi-agent SOC pipelines at Georgia Tech to Google AI–funded market intelligence for farmer collectives (ACM JCSS, COMPASS '23).",
+    "Research includes completed cybersecurity work at Georgia Tech, published farmer market intelligence in ACM JCSS, and federated learning.",
   about:
-    "M.S. Computer Science at Georgia Tech (AI specialization), B.E. from BITS Pilani. Deep in Rust, TypeScript, consensus protocols, cryptography, and AI security — with certifications in Rust, AWS ML, and cloud.",
+    "Software Engineer with 4+ YOE in Distributed Systems, Applied AI & AI Infrastructure and Cybersecurity",
   contact:
-    "Open to software engineering roles in distributed systems, AI/ML, and security. Based in the Bay Area, US citizen, available immediately and open to relocation. Reach out by email or LinkedIn.",
+    "Reach out by email or LinkedIn to discuss AI systems, distributed infrastructure, and security. The standard site has all contact links.",
 };
 
 const nodeContent: Record<
@@ -45,11 +44,11 @@ const nodeContent: Record<
   home: {
     label: profile.name,
     planetLabel: "Core Node",
-    planetDetail: `${profile.title} · ${profile.subtitle}`,
+    planetDetail: `${profile.title} · Demo only`,
     summary: summaries.home,
     highlights: [
       profile.tagline,
-      "Shardeum mainnet · 80M+ transactions · 150K+ validators",
+      "Current work at Liberdus. Recent cybersecurity research at Georgia Tech.",
       profile.workAuth,
     ],
     tags: [profile.title, profile.location],
@@ -58,44 +57,43 @@ const nodeContent: Record<
   experience: {
     label: "Experience",
     planetLabel: "Experience",
-    planetDetail: "Georgia Tech · Liberdus · Shardeum · BITS",
+    planetDetail: "Liberdus · Georgia Tech · Shardeum · BITS",
     summary: summaries.experience,
     highlights: experience.map(
       (job) =>
-        `${job.role} at ${job.company} (${job.period}) — ${job.highlights[0]}`,
+        `${job.company} · ${job.role} · ${job.period}`,
     ),
-    tags: ["Distributed Systems", "AI Security", "Rust", "Consensus"],
+    tags: ["Distributed Systems", "Cybersecurity", "Rust", "Consensus"],
     href: "/#experience",
   },
   projects: {
     label: "Projects",
     planetLabel: "Projects",
-    planetDetail: "BFT · RPC Proxy · Farmers Collective",
+    planetDetail: "Agent Consensus · Farmer AI · Trading ML",
     summary: summaries.projects,
-    highlights: projects.map((project) => `${project.name} — ${project.description}`),
+    highlights: projects.map((project) => ({ title: project.name, description: project.description })),
     tags: projects.flatMap((project) => project.tags).slice(0, 5),
     href: "/#projects",
   },
   opensource: {
     label: "Open Source",
     planetLabel: "Open Source",
-    planetDetail: "Shardeum · Farcaster · Liberdus",
+    planetDetail: "Networking · Protocol APIs · Secure signing",
     summary: summaries.opensource,
-    highlights: openSourceGroups.map(
-      (group) => `${group.org} (${group.stage}) — ${group.context}`,
-    ),
-    tags: ["Shardeum", "Farcaster", "Liberdus", "Rust", "TypeScript"],
+    highlights: openSource
+      .filter((repo) => repo.name !== "Blockscout" && repo.name !== "JSON-RPC Server")
+      .map((repo) => ({ title: repo.name, description: repo.description })),
     href: "/#opensource",
   },
   research: {
     label: "Research",
     planetLabel: "Research",
-    planetDetail: "AI Security · ACM JCSS · Federated Learning",
+    planetDetail: "Cybersecurity · ACM JCSS · Federated Learning",
     summary: summaries.research,
     highlights: research.map(
-      (entry) => `${entry.title} (${entry.period}) — ${entry.description}`,
+      (entry) => `${entry.title} · ${entry.period}`,
     ),
-    tags: ["AI Security", "ACM JCSS", "Google AI", "HCI", "Federated Learning"],
+    tags: ["Cybersecurity", "ACM JCSS", "Google AI", "HCI", "Federated Learning"],
     href: "/#research",
   },
   about: {
@@ -106,7 +104,7 @@ const nodeContent: Record<
     highlights: [
       ...education.map(
         (entry) =>
-          `${entry.degree} at ${entry.school}${entry.detail ? ` — ${entry.detail}` : ""} (${entry.period})`,
+          `${entry.degree} at ${entry.school} · ${entry.period}`,
       ),
       `Core stack: ${skillGroups[1].skills.join(", ")}`,
       `Also: ${skillGroups[0].skills.join(", ")} · ${skillGroups[2].skills.slice(0, 4).join(", ")}`,
@@ -120,8 +118,8 @@ const nodeContent: Record<
     planetDetail: "Email · LinkedIn · Open to roles",
     summary: summaries.contact,
     highlights: [
-      `${profile.email} — fastest way to reach me`,
-      "LinkedIn — abdulazeem-shaik (networking & referrals welcome)",
+      `${profile.email} · Email`,
+      "LinkedIn · abdulazeem-shaik",
       profile.workAuth,
       `Based in ${profile.location}`,
     ],
@@ -142,10 +140,10 @@ const colors: Record<string, number> = {
 
 const orbitIds = [
   "experience",
-  "projects",
-  "opensource",
   "research",
+  "opensource",
   "about",
+  "projects",
   "contact",
 ] as const;
 

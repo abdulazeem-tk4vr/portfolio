@@ -3,6 +3,11 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/AbdulAzeemShaik_CV.pdf"
+  to = "/AbdulAzeemShaik_Resume.pdf"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

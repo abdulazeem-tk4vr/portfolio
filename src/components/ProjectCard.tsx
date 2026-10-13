@@ -1,119 +1,48 @@
-import type { ReactNode } from "react";
+import { BrandLogo } from "./BrandLogo";
 import type { RepoEntry } from "../data/profile";
 
-function ProjectSection({
-  label,
-  children,
-}: {
-  label: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="project-section">
-      <p className="project-section-label">{label}</p>
-      <div className="project-section-body">{children}</div>
-    </div>
-  );
-}
-
-export function ProjectCard({
-  project,
-  index,
-}: {
-  project: RepoEntry;
-  index: number;
-}) {
+export function ProjectCard({ project, index }: { project: RepoEntry; index: number }) {
   return (
     <article
-      className="project-card"
+      className={`project-card${index === 0 ? " project-card-featured" : ""}`}
       itemScope
-      itemType="https://schema.org/SoftwareSourceCode"
+      itemType={project.repo ? "https://schema.org/SoftwareSourceCode" : "https://schema.org/CreativeWork"}
     >
-      <header className="project-card-header">
-        <div className="min-w-0 flex-1">
-          <p className="project-index" aria-hidden>
-            {String(index + 1).padStart(2, "0")}
-          </p>
-          <h3 className="project-card-title" itemProp="name">
-            {project.name}
-          </h3>
+      {project.visual && (
+        <figure className="project-visual">
+          <img src={project.visual} alt={project.visualDescription ?? `${project.name} workflow diagram`} className="project-visual-image" width={800} height={450} loading="lazy" decoding="async" />
+        </figure>
+      )}
+      <div className="project-content">
+        <header className="project-card-header">
+          <p className="project-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</p>
+          <div className="logo-name"><BrandLogo src={project.logo} /><h3 className="project-card-title" itemProp="name">{project.name}</h3></div>
+          {(project.org || project.period) && <p className="project-meta">{[project.org, project.period].filter(Boolean).join(" · ")}</p>}
+        </header>
+        <p className="project-lead" itemProp="description">{project.description}</p>
+        <div className="project-tags" aria-label="Technologies">
+          {project.tags.map((tag) => <span key={tag} className="project-tag" itemProp="keywords">{tag}</span>)}
         </div>
-        <a
-          href={project.repo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-card-icon-link"
-          aria-label={`View ${project.name} on GitHub`}
-        >
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
-      </header>
-
-      <div className="project-card-body">
-        <ProjectSection label="Overview">
-          <p className="project-text" itemProp="description">
-            {project.description}
-          </p>
-        </ProjectSection>
-
-        {project.bullets && project.bullets.length > 0 && (
-          <ProjectSection label="Details">
-            <ul className="project-detail-list">
-              {project.bullets.map((item) => (
-                <li key={item.slice(0, 48)}>{item}</li>
-              ))}
-            </ul>
-          </ProjectSection>
+        {(project.repo || project.paperUrl || project.demoUrl) && (
+          <footer className="project-card-footer">
+            {project.repo && (
+              <a href={project.repo} target="_blank" rel="noopener noreferrer" className="project-link" itemProp="codeRepository" aria-label={`View code for ${project.name}`}>
+                Code
+              </a>
+            )}
+            {project.paperUrl && (
+              <a href={project.paperUrl} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`Read the paper for ${project.name}`}>
+                Paper
+              </a>
+            )}
+            {project.demoUrl && (
+              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`Open the demo for ${project.name}`}>
+                Live demo
+              </a>
+            )}
+          </footer>
         )}
-
-        {project.challenge && (
-          <ProjectSection label="Key challenge">
-            <p className="project-text">{project.challenge}</p>
-          </ProjectSection>
-        )}
-
-        {project.result && (
-          <ProjectSection label="Result">
-            <p className="project-text project-result">{project.result}</p>
-          </ProjectSection>
-        )}
-
-        <ProjectSection label="Technologies">
-          <div className="project-tags">
-            {project.tags.map((tag) => (
-              <span key={tag} className="project-tag" itemProp="programmingLanguage">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </ProjectSection>
       </div>
-
-      <footer className="project-card-footer">
-        <a
-          href={project.repo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-link"
-          itemProp="codeRepository"
-        >
-          GitHub
-          <span aria-hidden>→</span>
-        </a>
-        {project.paperUrl && (
-          <a
-            href={project.paperUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link"
-          >
-            Paper
-            <span aria-hidden>→</span>
-          </a>
-        )}
-      </footer>
     </article>
   );
 }

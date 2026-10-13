@@ -6,3 +6,5 @@ dist
 .env.*
 tsconfig.tsbuildinfo
 Profile (2).pdf
+.netlify/
+Abdul_info.txt

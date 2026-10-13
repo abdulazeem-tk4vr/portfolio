@@ -1,27 +1,24 @@
 import { experience } from "../data/profile";
 import { ExperienceCard } from "./ExperienceCard";
-import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Typography";
 
 export function Experience() {
   return (
     <section id="experience" className="section-block section-divider" aria-labelledby="experience-heading">
-      <Reveal>
         <SectionHeader
           id="experience-heading"
-          label="Work"
+          label="02 / Career path"
           title="Experience"
-          intro="4+ years building production distributed systems — from blockchain mainnet launches to cross-chain bridges and AI security research."
         />
-      </Reveal>
-
-      <div className="card-grid">
+      <ol className="career-timeline" aria-label="Work and research experience">
         {experience.map((job, index) => (
-          <Reveal key={`${job.company}-${job.period}`} delay={index * 80}>
+          <li id={`career-${index}`} key={`${job.company}-${job.period}`} className="career-entry">
+            <span className="career-dot" aria-hidden="true" />
+            <p className="career-date">{job.period}{index === 0 && <span className="current-label">Current</span>}</p>
             <ExperienceCard job={job} />
-          </Reveal>
+          </li>
         ))}
-      </div>
+      </ol>
     </section>
   );
 }

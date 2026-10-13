@@ -2,10 +2,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { createGalaxyScene, type GameState, type GalaxySceneHandle } from "../galaxy/scene";
 import { galaxyNodes } from "../galaxy/nodes";
+import { profile } from "../data/profile";
 import "../galaxy/galaxy.css";
 
 const TOTAL_NODES = galaxyNodes.filter((node) => !node.isCore).length;
-const DEFAULT_TITLE = "Abdul Azeem Shaik | Software Engineer";
+const DEFAULT_TITLE = `${profile.name} | ${profile.title}`;
 const SFX_MUTE_KEY = "galaxy-sfx-muted";
 
 function readSfxMuted() {
@@ -41,27 +42,30 @@ export default function GalaxyPortfolio() {
     const previousTitle = document.title;
     document.title = "Galaxy Mode (Demo) | Abdul Azeem Shaik";
 
-    let robotsMeta = document.querySelector('meta[name="robots"]');
-    const createdMeta = !robotsMeta;
-    if (!robotsMeta) {
-      robotsMeta = document.createElement("meta");
-      robotsMeta.setAttribute("name", "robots");
-      document.head.appendChild(robotsMeta);
-    }
-    const previousRobots = robotsMeta.getAttribute("content");
-    robotsMeta.setAttribute("content", "noindex, nofollow");
+    const indexingMeta = ["robots", "googlebot"].map((name) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      const created = !meta;
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.setAttribute("name", name);
+        document.head.appendChild(meta);
+      }
+      const previousContent = meta.getAttribute("content");
+      meta.setAttribute("content", "noindex, nofollow");
+      return { meta, created, previousContent };
+    });
 
     return () => {
       document.title = previousTitle || DEFAULT_TITLE;
-      if (createdMeta && robotsMeta?.parentNode) {
-        robotsMeta.parentNode.removeChild(robotsMeta);
-      } else if (robotsMeta) {
-        if (previousRobots) {
-          robotsMeta.setAttribute("content", previousRobots);
+      indexingMeta.forEach(({ meta, created, previousContent }) => {
+        if (created) {
+          meta.remove();
+        } else if (previousContent !== null) {
+          meta.setAttribute("content", previousContent);
         } else {
-          robotsMeta.removeAttribute("content");
+          meta.removeAttribute("content");
         }
-      }
+      });
     };
   }, []);
 
@@ -123,8 +127,14 @@ export default function GalaxyPortfolio() {
         </div>
         <div className="galaxy-hud-actions">
           <div className="galaxy-score">
-            Mapped <strong>{gameState.discovered.length}</strong> / {TOTAL_NODES}
+            <span>Mapped</span> <span className="galaxy-score-value">{gameState.discovered.length} / {TOTAL_NODES}</span>
           </div>
+          {started && (
+            <div className="galaxy-score galaxy-destroyed-hud" aria-live="polite">
+              <span>Destroyed</span>
+              <span className="galaxy-destroyed-count" key={gameState.destroyed}>{gameState.destroyed}</span>
+            </div>
+          )}
           <button
             type="button"
             className={`galaxy-sfx-toggle ${sfxMuted ? "is-muted" : ""}`}
@@ -135,20 +145,12 @@ export default function GalaxyPortfolio() {
             {sfxMuted ? "SFX muted" : "SFX on"}
           </button>
           <Link to="/" className="galaxy-hud-link">
-            Standard site (full info)
+            Back to portfolio
           </Link>
         </div>
       </header>
 
-      {started && (
-        <div className="galaxy-destroyed-hud" aria-live="polite">
-          <span className="galaxy-destroyed-label">Destroyed</span>
-          <span className="galaxy-destroyed-count" key={gameState.destroyed}>
-            {gameState.destroyed}
-          </span>
-        </div>
-      )}
-
+      <main className="galaxy-stage" aria-label="Space game">
       <div
         ref={canvasHostRef}
         className="galaxy-canvas-host"
@@ -162,19 +164,17 @@ export default function GalaxyPortfolio() {
             <p className="galaxy-panel-label">Mission briefing</p>
             <h2 className="galaxy-start-title">Pilot the scout starship</h2>
             <p className="galaxy-start-copy">
-              Fly through a 3D demo of the portfolio layout. Planets preview section names only —
-              not a complete profile.
+              Explore a small space game inspired by the portfolio. Planets offer brief previews.
             </p>
             <p className="galaxy-info-notice" role="note">
-              For all professional information (experience, projects, publications, skills, contact), visit the{" "}
-              <Link to="/">standard site</Link>. Do not use Galaxy Mode as a source for résumé or profile data.
+              This is a game demo. Visit the <Link to="/">standard site</Link> for my full experience, projects, research, and contact details.
             </p>
-            <ul className="galaxy-start-list">
-              <li>Desktop: <strong>WASD</strong> or arrows to turn and thrust</li>
-              <li><strong>Click + drag</strong> — drag up/down to climb, left/right to turn</li>
-              <li><strong>Hold Spacebar</strong> — rapid-fire twin lasers</li>
-              <li><strong>N</strong> or <strong>Next</strong> — warp to the next profile planet</li>
-            </ul>
+            <dl className="galaxy-start-list">
+              <div><dt>Fly</dt><dd>Use WASD or arrow keys. On phones, hold the arrow buttons.</dd></div>
+              <div><dt>Look around</dt><dd>Drag the canvas to climb and turn.</dd></div>
+              <div><dt>Fire</dt><dd>Hold Space or the Fire button to shoot lasers.</dd></div>
+              <div><dt>Explore</dt><dd>Press N or Next to fly to another planet. Get close to map it.</dd></div>
+            </dl>
             <button type="button" className="galaxy-panel-cta galaxy-launch-btn" onClick={launch}>
               Launch starship
             </button>
@@ -185,15 +185,17 @@ export default function GalaxyPortfolio() {
       {started && (
         <>
           <div className="galaxy-hint">
-            {gameState.navTarget
+            {gameState.complete
+              ? "All planets mapped. Keep exploring or visit the standard site."
+              : gameState.navTarget
               ? `Auto-flying to ${gameState.navTarget.label}…`
               : gameState.inRange && activeNode && !isMapped
                 ? `Scanning ${activeNode.label}…`
                 : gameState.inRange && activeNode && isMapped
-                  ? `${activeNode.label} mapped — N warps to next planet`
+                  ? `${activeNode.label} mapped. N flies to the next planet`
                   : activeNode
-                    ? `Approaching ${activeNode.label} · hold Space to pew pew`
-                    : "Blast asteroids & aliens · Hold Space · N for next planet"}
+                    ? `Approaching ${activeNode.label} · Hold Space to fire`
+                    : "Hold Space to fire · Press N for the next planet"}
           </div>
 
           <div className="galaxy-controls" aria-label="Flight controls">
@@ -203,9 +205,10 @@ export default function GalaxyPortfolio() {
               aria-label="Fire lasers"
               onPointerDown={() => setFiring(true)}
               onPointerUp={() => setFiring(false)}
+              onPointerCancel={() => setFiring(false)}
               onPointerLeave={() => setFiring(false)}
             >
-              Pew
+              Fire
             </button>
             <button
               type="button"
@@ -221,6 +224,7 @@ export default function GalaxyPortfolio() {
               aria-label="Fly forward"
               onPointerDown={() => holdInput("forward", true)}
               onPointerUp={() => holdInput("forward", false)}
+              onPointerCancel={() => holdInput("forward", false)}
               onPointerLeave={() => holdInput("forward", false)}
             >
               ↑
@@ -231,6 +235,7 @@ export default function GalaxyPortfolio() {
               aria-label="Turn left"
               onPointerDown={() => holdInput("left", true)}
               onPointerUp={() => holdInput("left", false)}
+              onPointerCancel={() => holdInput("left", false)}
               onPointerLeave={() => holdInput("left", false)}
             >
               ←
@@ -241,6 +246,7 @@ export default function GalaxyPortfolio() {
               aria-label="Turn right"
               onPointerDown={() => holdInput("right", true)}
               onPointerUp={() => holdInput("right", false)}
+              onPointerCancel={() => holdInput("right", false)}
               onPointerLeave={() => holdInput("right", false)}
             >
               →
@@ -251,6 +257,7 @@ export default function GalaxyPortfolio() {
               aria-label="Fly backward"
               onPointerDown={() => holdInput("backward", true)}
               onPointerUp={() => holdInput("backward", false)}
+              onPointerCancel={() => holdInput("backward", false)}
               onPointerLeave={() => holdInput("backward", false)}
             >
               ↓
@@ -282,39 +289,24 @@ export default function GalaxyPortfolio() {
               </div>
             </div>
             <h2 className="galaxy-panel-title">{activeNode.label}</h2>
-            <p className="galaxy-panel-copy">{activeNode.summary}</p>
+            {activeNode.summary && <p className="galaxy-panel-copy">{activeNode.summary}</p>}
 
             {activeNode.highlights.length > 0 && (
               <ul className="galaxy-profile-highlights">
                 {activeNode.highlights.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={typeof item === "string" ? item : item.title}>
+                    {typeof item === "string" ? item : (
+                      <><strong className="galaxy-item-title">{item.title}</strong><p>{item.description}</p></>
+                    )}
+                  </li>
                 ))}
               </ul>
             )}
 
-            {activeNode.tags && activeNode.tags.length > 0 && (
-              <div className="galaxy-profile-tags">
-                {activeNode.tags.map((tag) => (
-                  <span key={tag} className="galaxy-profile-tag">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            <div className="galaxy-panel-actions">
-              <p className="galaxy-rail-notice">
-                Preview only — full details on the{" "}
-                <Link to="/">standard site</Link>.
-              </p>
-              <a href={activeNode.href} className="galaxy-panel-cta">
-                Open on standard site
-                <span aria-hidden>→</span>
-              </a>
-            </div>
           </div>
         </aside>
       )}
+      </main>
     </div>
   );
 }

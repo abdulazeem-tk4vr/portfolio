@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Abdul Azeem Shaik, AI and Systems Engineer</title>
+  <rect width="1200" height="630" fill="#f8faff"/>
+  <path d="M1040 0V630" stroke="#d0dcef" stroke-width="2"/>
+  <path d="M1040 92V538" stroke="#2459be" stroke-width="4"/>
+  <g fill="#2459be"><circle cx="1040" cy="130" r="12"/><circle cx="1040" cy="315" r="12"/><circle cx="1040" cy="500" r="12"/></g>
+  <g font-family="Arial, sans-serif"><text x="80" y="125" fill="#2459be" font-size="20" letter-spacing="3">AI · SECURITY · DISTRIBUTED SYSTEMS</text><text x="80" y="260" fill="#152b4b" font-size="68" font-weight="700">Abdul Azeem</text><text x="80" y="343" fill="#152b4b" font-size="68" font-weight="700">Shaik</text><text x="80" y="421" fill="#536b8d" font-size="32">AI &amp; Systems Engineer</text><text x="80" y="536" fill="#536b8d" font-size="23">From research to production.</text></g>
+</svg>

@@ -1,45 +1,60 @@
+const organizationLogos: Record<string, string> = {
+  "Liberdus": "/logos/liberdus.png",
+  "Shardeum": "/logos/shardeum.svg",
+  "Farcaster": "/logos/farcaster.svg",
+  "Red Hat": "/logos/redhat.svg",
+  "Georgia Institute of Technology": "/logos/georgia-tech-mark.png",
+  "BITS Pilani": "/logos/bits-pilani.png",
+  "Mazo Solutions": "/logos/mazo.png",
+};
+
 export const profile = {
   name: "Abdul Azeem Shaik",
   firstName: "Abdul Azeem",
   shortName: "Abdul Azeem",
-  title: "Software Engineer",
+  title: "Software Engineer - AI and Distributed Systems",
   heroFocus: "Distributed Systems · Rust · TypeScript · AI Systems",
   subtitle: "Georgia Tech OMSCS · Shardeum · Liberdus",
-  tagline: "Distributed systems · AI security · Blockchain infrastructure",
-  location: "Fremont, California",
+  tagline: "Distributed systems · cybersecurity · Blockchain infrastructure",
+  location: "California, USA",
   email: "sabdulazeem01@gmail.com",
   workAuth:
-    "Open to relocation (Qatar, Saudi Arabia, UAE · valid GCC ID) · Remote · Hybrid · On-site",
+    "US citizen · Clearance Eligible · Open to relocation",
   links: {
     github: "https://github.com/abdulazeem-tk4vr",
     linkedin: "https://www.linkedin.com/in/abdulazeem-shaik",
-    cv: "/AbdulAzeemShaik_CV.pdf",
+    cv: "/AbdulAzeemShaik_Resume.pdf",
+    scholar: "https://scholar.google.com/citations?user=rCE6Z28AAAAJ&hl=en",
   },
-  oneLineSummary:
-    "Software engineer specializing in distributed systems, scalable infrastructure, and AI security. Experience building blockchain protocols, async networking, and research-driven software — with interests in consensus, RPC systems, and high-performance backends.",
-  intro:
-    "Software engineer with 4+ years of production experience in Python, TypeScript, Rust, and C++ — building and securing distributed systems at scale with decentralized nodes, AI models, and autonomous cryptographic agents.",
+  currentFocus:
+    "Building payment products, reliable distributed infrastructure, and AI workflows for security.",
+  intro: [
+    "Software engineer with 4+ years in AI infrastructure and distributed systems. Researched applied AI for cybersecurity at Georgia Tech.",
+    "Early technical hire at Shardeum and Liberdus. Built sharded storage, fault tolerant consensus, and peer-to-peer networking, bringing research prototypes into production.",
+    "Helped develop AI market intelligence for farmer cooperatives through research with IIT Delhi. Published in ACM JCSS with Google AI for Social Good funding.",
+    "Seeking roles in AI engineering, distributed systems, and infrastructure. No sponsorship needed; open to relocation.",
+  ],
   siteDescription:
-    "This is my personal site where I share projects, open source work, and notes on building secure, high-performance systems.",
+    "Projects, research, and open source work in secure AI and distributed systems.",
   summary:
-    "Software Engineer with 4+ years of production experience in Python, TypeScript, Rust, and C++. Built and secured distributed systems at scale with decentralized nodes, AI models, and autonomous cryptographic agents. AI Security Researcher at Georgia Tech's School of Cybersecurity and Privacy, focusing on adversarial attacks on agentic AI systems. ACM-published research funded by Google AI for Social Good. Contributed to Shardeum mainnet — the world's first sharded autoscaling EVM-compatible L1 (80M+ transactions, 150K+ validators).",
+    "AI and systems engineer with 4+ years of production experience in Python, TypeScript, Rust, and C++. Building payments and infrastructure at Liberdus. Researched agentic AI for cybersecurity at Georgia Tech from April to September 2026. Published research in ACM JCSS with funding from Google AI for Social Good. Contributed to Shardeum mainnet and testnet, supporting 80M+ transactions and 150K+ validator registrations.",
 };
 
 export const impactHighlights = [
   {
-    title: "Shardeum & Liberdus",
+    title: "80M+ transactions",
     detail:
-      "Senior SWE on sharded L1 mainnet (80M+ transactions, 150K+ validators) and cross-chain TSS infrastructure — #2 technical hire at Shardeum seed stage.",
+      "Supported by Shardeum mainnet and testnet infrastructure",
   },
   {
-    title: "ACM JCSS Publication",
+    title: "Applied AI CyberSec",
     detail:
-      "Google AI for Social Good · AI market intelligence for farmer collectives · presented at ACM COMPASS '23.",
+      "Systems beat frontier LLMs on SecOps benchmarks",
   },
   {
-    title: "Georgia Tech OMSCS",
+    title: "10,000 requests/second",
     detail:
-      "M.S. Computer Science (4.0 GPA) · AI Security research on adversarial multi-agentic systems and SOC workflows.",
+      "Handled by a purpose-built distributed node monitoring service",
   },
 ];
 
@@ -48,7 +63,7 @@ export const featuredHighlight = {
   title: "AI-based Market Intelligence for Farmer Collectives",
   description:
     "ACM Journal on Computing and Sustainable Societies (JCSS) · funded by Google AI for Social Good. Time-series forecasting deployed in a production Android app for farmer cooperatives in India.",
-  href: "https://dl.acm.org/doi/10.1145/3600217",
+  href: "https://dl.acm.org/doi/10.1145/3609262",
   cta: "Read paper",
 };
 
@@ -61,201 +76,143 @@ export const socialLinks = [
 export const experience = [
   {
     company: "Liberdus",
-    role: "Senior Software Engineer — Distributed Systems",
+    logo: organizationLogos["Liberdus"],
+    role: "Software Engineer, Distributed Systems and Payments",
     location: "San Francisco Bay Area",
     period: "Jan 2026 – Present",
+    summary: "Builds payment flows and distributed services in TypeScript and Rust. Fixing TSS deadlocks cut transaction finality time by 85%, gossip protocols reduced historical sync latency by 63%, and RPC caching reduced heap use by 50%, stopping OOM crashes. Work also spans quorum queries, API hardening, and contract security reviews.",
     highlights: [
-      "Built the Liberdus cross-chain payment platform and BSC bridge, enabling asset transfers within a unified messaging and payments interface.",
-      "Building the distributed backend infrastructure for the Liberdus governance system.",
-      "Reduced transaction time to finality by 85% by resolving TSS signer deadlocks through entry synchronization fixes across signing parties.",
-      "Cut historical data sync latency by 63% by introducing transaction gossip protocols into the sync pipeline.",
-      "Reduced heap memory usage by 50% and eliminated OOM crashes through RPC response caching.",
-      "Improved transaction latency by 38% via smarter RPC request routing across validator nodes.",
-      "Built a blockchain indexing microservice to make historical transaction sync horizontally scalable.",
-      "Built a quorum-based validator response mechanism in Rust for Byzantine-resilient consensus queries.",
-      "Resolved database contention in SQLite-backed components by applying betterSQLite concurrency best practices.",
-      "Added forward gateway functionality for TSS signers in Rust to enable bridge client communication.",
-      "Led DevSecOps across Liberdus open-source repositories as the primary maintainer for security practices in SDLC.",
-      "Discovered and fixed multiple critical CVEs in the TSS Signer, Reverse Proxy, and Frontend client.",
-      "Audited bridge smart contracts across chains, identifying and remediating security vulnerabilities.",
-      "Implemented cryptographic libraries in Rust for identity verification and threshold signature support.",
-      "Improved API architecture to protect systems against DDoS attacks and secret leaks.",
+      "Built bridge dashboards and payment flows in React and Node.js, with scalable indexing and backend services for governance.",
+      "Cut transaction finality time by 85% through TSS deadlock fixes and historical sync latency by 63% through gossip protocols.",
+      "Reduced heap use by 50% with RPC caching, stopped OOM crashes, improved transaction latency by 38%, and resolved SQLite contention.",
+      "Built Rust quorum queries, identity verification, threshold signatures, and signer gateways for reliable communication across distributed nodes.",
+      "Owned DevSecOps and contract audits, fixed critical CVEs, hardened APIs against DDoS and secret leaks, and used AI for incident response.",
     ],
-    tags: ["TypeScript", "Node.js", "Rust", "Python", "Blockchain Security"],
+    tags: ["Rust", "TypeScript", "Distributed Systems"],
     url: "https://liberdus.com",
   },
   {
     company: "Georgia Institute of Technology",
-    role: "Research — Agentic AI Security",
+    logo: organizationLogos["Georgia Institute of Technology"],
+    role: "AI Researcher, Applied AI for Cybersecurity",
     location: "Remote",
-    period: "Apr 2026 – Present",
+    period: "Apr 2026 – Sep 2026",
     org: "School of Cybersecurity and Privacy",
-    highlights: [
-      "Investigating adversarial threats and cybersecurity attacks in LLMs and multi-agentic AI systems with Dr. Vijay Madisetti.",
-      "Multi-agentic AI consensus protocol enforced by deterministic schemas; extending to quorum on non-deterministic outputs with multi-turn communication (Blue Team).",
-      "Wazuh SIEM workflows with agentic AI systems to increase SOC triage efficiency (Blue Team).",
-      "Probe generation pipelines to test robustness against agentic AI attacks and generative AI threats using cyber defense benchmarks (Red Team).",
-    ],
-    tags: ["AI Security", "TypeScript", "Multi-Agent Systems", "SOC", "Wazuh"],
+    summary: "Built multi agent systems for autonomous SOC investigations under Prof. Vijay Madisetti, using SecureBERT RAG, a LoRA tuned Qwen2.5 14B and Byzantine fault tolerant quorum voting. Invited to TA an agentic AI course and recommended for research with an industry defense partner.",
+    researchAnchor: "soc-research",
+    tags: ["Python", "Applied AI", "Cybersecurity"],
   },
   {
     company: "Shardeum",
-    role: "Senior Software Engineer — Distributed Systems",
+    logo: organizationLogos["Shardeum"],
+    role: "Software Engineer → Senior Software Engineer, Distributed Systems",
     location: "Remote",
-    period: "Jul 2025 – Jan 2026",
+    period: "Aug 2022 – Dec 2025",
+    summary: "Helped launch mainnet and testnet infrastructure supporting 80M+ transactions and 150K+ validator registrations. Built payment APIs with about 30 ms P99 latency and a node monitoring service handling 10K requests per second. Rust and TypeScript work covered validator networking, shard state sync, crash recovery and consensus security, including a 34% cut in TCP latency.",
     highlights: [
-      "Launched Shardeum's Cosmos-based EVM smart contract platform and delivered core onboarding features for the world's first sharded autoscaling L1 blockchain, scaling testnet to 80M+ transactions and 150K+ validators.",
-      "Improved the contract storage account architecture on Shardus DLT, reducing memory footprint and improving shard-boundary scalability.",
-      "Led development of a checkpoint-aware patching system in the network explorer, making it fault-tolerant across chain reorganizations and unplanned restarts.",
-      "Built an RPC reverse proxy with integrated node discovery and load balancing, improving request distribution and validator network resilience.",
-      "Built the network data explorer and payment platform to onboard users across EVM-compatible networks.",
-      "Redesigned the authorization and verification logic in the Shardus consensus algorithm, improving throughput, security, and data integrity.",
-      "Owned security engineering responsibilities across attack-tolerant system design, Byzantine fault-tolerant architecture, and web security practices.",
-      "Implemented production monitoring and DevSecOps workflows using AWS CloudWatch, Lambda, Jenkins, and Slack-integrated alerting.",
+      "Helped launch mainnet and testnet features supporting 80M+ transactions and 150K+ validator registrations, with payment APIs reaching approximately 30 ms P99 latency.",
+      "Built payment interfaces, network dashboards, and an MCP server connecting autonomous agents to payment workflows through JSON-RPC.",
+      "Reduced storage memory use and built state sync across shards, with checkpoint recovery for rollbacks and unexpected restarts.",
+      "Improved network resilience through RPC load balancing, node discovery, and stronger transaction authorization and verification in the consensus layer.",
+      "Set up AWS monitoring and Jenkins deployment workflows, and helped leadership model network governance and incentives.",
+      "Built a distributed node monitoring service handling 10,000 requests per second, working directly with CTO Omar Syed as an early technical hire.",
+      "Accelerated ECDSA recovery 14× in Rust, cut TCP networking latency by 34%, and reduced signing latency by 29% with libsodium.",
+      "Reduced API response delay by 78% through JSON-RPC and GraphQL services, with WebSocket streaming and distributed bytecode caching.",
+      "Improved P2P gossip with custom serialization and shard storage partitioning, and built multisig authentication for network transactions and DAO proposals.",
+      "Fixed consensus, DDoS, MITM, and replay vulnerabilities to prevent fund loss, while improving lost node detection and auditing smart contracts.",
     ],
-    tags: ["Rust", "TypeScript", "Node.js", "Cryptography", "Consensus"],
+    tags: ["Rust", "TypeScript", "Consensus"],
     url: "https://shardeum.org",
   },
   {
-    company: "Shardeum",
-    role: "Software Engineer",
-    location: "Remote",
-    period: "Aug 2022 – Jul 2025",
-    highlights: [
-      "Designed and developed a scalable node monitoring system handling 10,000 requests per second.",
-      "Improved validator networking latency by 34% (82 ms → 54 ms) in the TCP-based async communication library.",
-      "Upgraded the cryptographic library to Rust-based libsodium, reducing latency by 29%.",
-      "Upgraded the JSON RPC server with a WebSocket-based data distribution protocol, boosting TPS by 60%.",
-      "Improved ecrecover address recovery latency by 14× (10 ms → 700 µs) by migrating to Rust.",
-      "Boosted gossip protocol throughput with a custom data serialization library for secure P2P communication.",
-      "Improved network data access by implementing distributed bytecode caching across the sharded network.",
-      "Enhanced load distribution with variable EVM storage account partitioning across shards.",
-      "Discovered and fixed multiple bounty bugs covering consensus vulnerabilities, DDoS, MITM, and replay attacks.",
-      "Discovered critical vulnerabilities preventing loss of funds and double-spend exploits on the live network.",
-      "Developed a multi-sig authentication service for executing network transactions and DAO proposals.",
-      "Conducted smart contract security audits for decentralized applications deployed on Shardeum.",
-      "Worked directly with CTO Omar Syed as the #2 technical hire during Shardeum's seed round.",
-    ],
-    tags: ["Rust", "TypeScript", "Node.js", "GCP", "Consensus"],
-    url: "https://shardeum.org",
-  },
-  {
-    company: "BITS Pilani Hyderabad",
-    role: "Research — HCI & Applied AI",
+    company: "BITS Pilani",
+    logo: organizationLogos["BITS Pilani"],
+    role: "Research, HCI & Applied AI",
     location: "India",
     period: "Aug 2021 – Jul 2022",
+    summary: "Turned ARIMA and temporal convolutional forecasts into sales guidance in an Android app for farmer cooperatives. Field testing with farmers in Adilabad shaped the product, and the research was published in ACM JCSS with Google AI for Social Good funding.",
     highlights: [
-      "Published \"AI-based Market Intelligence Systems for Farmer Collectives\" — funded by Google AI for Social Good, ACM JCSS.",
-      "Integrated time-series forecasting models into a native Android application, translating model outputs into actionable crop price trend predictions for farmers, village officers, and local businesses.",
-      "Conducted field research in Adilabad, running user interviews and iterating on the product based on direct feedback as a deployed engineer on field.",
-      "Invited to present at ACM COMPASS '23.",
+      "Brought crop price forecasts into an Android app for farmer cooperatives, with research funded by Google AI for Social Good.",
+      "Tested the app with farmers in Adilabad and improved features through interviews, helping turn research predictions into practical sales guidance.",
+      "Published the work in ACM JCSS and was invited to present at ACM COMPASS '23.",
     ],
-    tags: ["Android", "Java", "Machine Learning", "HCI"],
-  },
-  {
-    company: "BITS Pilani Hyderabad",
-    role: "Research — IoT & ML",
-    location: "India",
-    period: "Jan 2022 – May 2022",
-    highlights: [
-      "Worked with Prof. Nikumani Choudhary on \"Utilizing LoRA in IoT using Federated Learning\" — surveying ML optimization techniques for resource-constrained IoT with a focus on data privacy through distributed training.",
-      "Set up IoT testbeds using Arduino Uno, Raspberry Pi, and Python scripts to reproduce experiments from existing literature on edge ML deployment.",
-    ],
-    tags: ["AI Engineering", "IoT", "Federated Learning"],
-  },
-  {
-    company: "BITS Pilani Hyderabad",
-    role: "Research — HCI & Network Security",
-    location: "India",
-    period: "Dec 2021 – May 2022",
-    highlights: [
-      "Worked with Prof. Dipanjan Chakraborty on \"User Experience of Low Cost Android Devices\" — studying bloatware and third-party applications using network packet capture, Battery Historian, and user studies.",
-      "Analyzed response speeds, network availability, and traffic patterns between foreign data centers and low-cost devices using Wireshark PCAP tracing environments.",
-    ],
-    tags: ["Network Security", "Application Security", "HCI"],
+    tags: ["Android", "Machine Learning", "HCI"],
   },
   {
     company: "Mazo Solutions",
-    role: "Software Engineer Intern",
+    logo: organizationLogos["Mazo Solutions"],
+    role: "Software Developer, Product Intern",
     location: "Virginia, United States",
     period: "May 2021 – Jul 2021",
+    summary: "Built a scheduling app with Spring Boot, JPA, and MySQL, added overbooking controls, and improved the interface with React.",
     highlights: [
-      "Built a COVID-19 Android and iOS application for vaccine alerts and reminders in Flutter.",
+      "Built a scheduling app with Spring Boot, JPA, MySQL, and Thymeleaf, adding overbooking controls and improving the interface with React and Bootstrap.",
     ],
-    tags: ["Flutter", "Android", "iOS"],
+    tags: ["Java", "Spring Boot", "MySQL"],
   },
 ];
 
 export type RepoEntry = {
   name: string;
-  repo: string;
+  repo?: string;
+  prUrl?: string;
   description: string;
+  highlights?: string[];
   tags: string[];
-  bullets?: string[];
-  challenge?: string;
-  result?: string;
+  org?: string;
+  period?: string;
   paperUrl?: string;
+  logo?: string;
+  visual?: string;
+  visualDescription?: string;
+  demoUrl?: string;
 };
 
 export const projects: RepoEntry[] = [
   {
-    name: "Multi-Agentic BFT Consensus",
+    name: "Multi agent AI Consensus System",
+    logo: "/logos/python.svg",
     repo: "https://github.com/abdulazeem-tk4vr/multi-agentic-bft",
+    period: "May 2026 – Aug 2026",
+    visual: "/projects/consensus.svg",
+    visualDescription: "Diagram of agents proposing solutions, voting, and reaching quorum.",
     description:
-      "Byzantine fault-tolerant consensus library for multi-agent AI systems based on the Aegean Protocol.",
-    bullets: [
-      "Language: Python · async HTTP workers · event bus for session observability",
-      "Leader election, quorum voting, Solution/Refinement rounds with configurable commit rules",
-      "Semantic equivalence checks for LLM output stability across non-deterministic agents",
-      "Fault tolerance when agents disagree, compromise, or produce inconsistent tool outputs",
+      "A Python library that helps AI agents reach reliable decisions through Byzantine fault-tolerant consensus.",
+    highlights: [
+      "Coordinates 3+ agents through leader election, quorum voting, and Solution/Refinement rounds with configurable α/β commit rules.",
+      "Local and distributed HTTP workers, session event bus, and semantic equivalence checks for LLM output stability.",
     ],
-    challenge:
-      "Coordinate 3+ autonomous agents without a central authority when LLM outputs are non-deterministic and adversarial manipulation is possible.",
-    result:
-      "Production-ready library with local and distributed workers; structured consensus rounds detect and resolve agent disagreement.",
-    tags: [
-      "Python",
-      "Consensus",
-      "Distributed Systems",
-      "Byzantine Fault Tolerance",
-      "Leader Election",
-      "AI Security",
-    ],
+    tags: ["Python", "Multi agent Systems", "BFT"],
   },
   {
-    name: "RPC Reverse Proxy",
-    repo: "https://github.com/abdulazeem-tk4vr/reverse-proxy",
-    description:
-      "JSON-RPC reverse proxy with integrated node discovery and load balancing for sharded validator networks.",
-    bullets: [
-      "TypeScript · Node.js · JSON-RPC · WebSockets · TCP networking",
-      "Automatic validator node discovery and request routing across shards",
-      "Load balancing under high-throughput validator traffic",
-      "Deployed on Shardeum mainnet infrastructure for network resilience",
-    ],
-    challenge:
-      "Route RPC traffic across a dynamically sharded validator network without single points of failure or hot shards.",
-    result:
-      "Improved request distribution and validator network resilience; used in production sharded L1 deployment.",
-    tags: ["TypeScript", "Node.js", "JSON-RPC", "Load Balancing", "Networking", "Async"],
-  },
-  {
-    name: "Farmers Collective — Applied ML",
+    name: "AI Market Intelligence for Farmer Collectives",
+    logo: organizationLogos["BITS Pilani"],
+    visual: "/projects/farmers.svg",
+    visualDescription: "Diagram showing market data becoming price forecasts and farmer sales recommendations.",
     repo: "https://github.com/abdulazeem-tk4vr/farmers_collective",
+    org: "BITS Pilani · Google AI for Social Good",
     description:
-      "Production Android app integrating time-series forecasting for crop price predictions in rural India.",
-    bullets: [
-      "Android · Kotlin · Firebase · field-deployed with farmer cooperatives",
-      "Prospect-theory-based sales recommendations from ML price forecasts",
-      "Validated with real market data and user studies in Adilabad, India",
-      "Published in ACM JCSS · Google AI for Social Good funded",
+      "Turned crop price forecasts into sales recommendations for farmer cooperatives in India.",
+    highlights: [
+      "ARIMA and temporal convolutional networks delivered through a field-deployed Android app for rural use.",
+      "Published in ACM JCSS; validated with real market data and farmer feedback in Adilabad.",
     ],
-    challenge:
-      "Translate research-grade forecasting models into actionable predictions for low-literacy end users in low-resource environments.",
-    result:
-      "Published in ACM JCSS; presented at ACM COMPASS '23; positive field feedback from farmer cooperatives.",
-    tags: ["Android", "Kotlin", "Machine Learning", "Firebase", "HCI"],
-    paperUrl: "https://dl.acm.org/doi/10.1145/3600217",
+    tags: ["Machine Learning", "Android", "Time Series"],
+    paperUrl: "https://dl.acm.org/doi/10.1145/3609262",
+  },
+  {
+    name: "AI Trading Strategy Evaluator",
+    logo: organizationLogos["Georgia Institute of Technology"],
+    visual: "/projects/trading.svg",
+    visualDescription: "Diagram of market indicators, trading strategies, and performance evaluation.",
+    org: "Georgia Institute of Technology",
+    description:
+      "Evaluated a rule-based trading strategy against a Random Forest model using JPMorgan Chase stock data.",
+    highlights: [
+      "Rule-based signals from SMA, Bollinger Bands, RSI, and MACD; Random Forest trained on 2008–2009 data and evaluated out-of-sample on 2010–2011 vs. buy-and-hold.",
+      "Measured cumulative return, volatility, transaction costs, and market impact across regimes.",
+    ],
+    tags: ["Machine Learning", "Random Forest", "Algorithmic Trading"],
   },
 ];
 
@@ -263,105 +220,103 @@ export type OpenSourceGroup = {
   org: string;
   url: string;
   stage: string;
-  context: string;
+  logo: string;
   repos: RepoEntry[];
 };
 
 export const openSourceGroups: OpenSourceGroup[] = [
   {
-    org: "Shardeum",
-    url: "https://shardeum.org",
-    stage: "Mainnet L1",
-    context:
-      "Autoscaling EVM blockchain with dynamic state sharding. ~$24M raised (Jane Street, Spartan Group, CoinGecko Ventures). Mainnet live since 2025 — scaled to 80M+ transactions and 150K+ validators during my tenure.",
+    org: "Red Hat",
+    logo: organizationLogos["Red Hat"],
+    url: "https://www.redhat.com/en/about",
+    stage: "Cloud provisioning",
     repos: [
       {
-        name: "Shardeum Core",
-        repo: "https://github.com/shardeum/core",
-        description:
-          "Shardus Core — the distributed ledger engine powering Shardeum's sharded consensus, state management, and validator coordination across the network.",
-        tags: ["TypeScript", "Node.js", "Consensus", "DLT"],
+        name: "MAPT",
+        repo: "https://github.com/redhat-developer/mapt",
+        prUrl: "https://github.com/redhat-developer/mapt/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr",
+        description: "Sanitized host and username fields in AWS and Azure secrets so newline characters no longer break environment provisioning.",
+        tags: ["Cloud Infrastructure", "Kubernetes", "AWS"],
       },
+    ],
+  },
+  {
+    org: "Shardeum",
+    logo: organizationLogos["Shardeum"],
+    url: "https://shardeum.org",
+    stage: "Mainnet L1",
+    repos: [
       {
-        name: "Shardeum Archiver",
-        repo: "https://github.com/shardeum/archiver",
-        description:
-          "Archiver node for the Shardus network that stores the complete cycle chain and historical state data, enabling network recovery and auditability.",
-        tags: ["TypeScript", "Node.js", "Distributed Systems"],
-      },
-      {
-        name: "Shardeum",
-        repo: "https://github.com/shardeum/shardeum",
-        description:
-          "EVM-compatible autoscaling L1 node software — the application layer running on Shardus Core for validator participation and smart contract execution.",
-        tags: ["TypeScript", "EVM", "Blockchain", "Sharding"],
+        name: "lib-net",
+        repo: "https://github.com/shardeum/lib-net",
+        prUrl: "https://github.com/shardeum/lib-net/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr",
+        description: "Improved TCP messaging between validators, cutting latency by 34% from 82 ms to 54 ms.",
+        tags: ["Rust", "TypeScript", "TCP"],
       },
       {
         name: "JSON-RPC Server",
         repo: "https://github.com/shardeum/json-rpc-server",
-        description:
-          "JSON-RPC gateway for Shardeum validator nodes. Upgraded with WebSocket-based data distribution, boosting RPC throughput by 60%.",
-        tags: ["TypeScript", "Node.js", "JSON-RPC", "WebSockets"],
+        prUrl: "https://github.com/shardeum/json-rpc-server/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr",
+        description: "Added WebSocket data streaming to the validator gateway, increasing RPC throughput by 60%.",
+        tags: ["TypeScript", "JSON-RPC", "WebSockets"],
       },
       {
-        name: "lib-net",
-        repo: "https://github.com/shardeum/lib-net",
-        description:
-          "High-performance TCP library for JSON messaging across validator nodes. Reduced communication latency by 34% (82 ms → 54 ms) via Rust-accelerated crypto and protocol optimizations.",
-        tags: ["Rust", "TypeScript", "TCP", "P2P"],
+        name: "Shardeum Core & Node",
+        repo: "https://github.com/shardeum/core",
+        prUrl: "https://github.com/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr%20repo%3Ashardeum/core%20repo%3Ashardeum/shardeum",
+        description: "Hardened consensus endpoints against replay and front running attacks, added state sync validation, and fixed null handling that could crash nodes.",
+        tags: ["TypeScript", "EVM", "Consensus"],
       },
       {
-        name: "Blockscout",
-        repo: "https://github.com/shardeum/blockscout",
-        description:
-          "Shardeum fork of Blockscout — open-source block explorer for searching transactions, accounts, and smart contracts on the Shardeum network.",
-        tags: ["Elixir", "Blockchain Explorer", "EVM"],
+        name: "Shardeum Archiver",
+        repo: "https://github.com/shardeum/archiver",
+        prUrl: "https://github.com/shardeum/archiver/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr",
+        description: "Fixed receipt overwrites and hardened restoration requests, preserving successful transaction history and preventing denial of service during recovery.",
+        tags: ["TypeScript", "Node.js", "Distributed Systems"],
       },
     ],
   },
   {
     org: "Farcaster",
+    logo: organizationLogos["Farcaster"],
     url: "https://farcaster.xyz",
-    stage: "Protocol · Dev infra",
-    context:
-      "Decentralized social protocol for onchain identity and feeds. $180M raised from Paradigm and a16z (~$1B valuation). ~250K monthly active users and 100K+ funded wallets; acquired by Neynar in 2026 with a developer-first pivot.",
+    stage: "Protocol \u00b7 Dev infra",
     repos: [
       {
         name: "Farcaster Snapchain",
         repo: "https://github.com/farcasterxyz/snapchain",
-        description:
-          "Enhanced event filtering and querying APIs with timestamp and block-based filters; designed efficient serialization for network and database performance.",
-        tags: ["Rust", "RocksDB", "gRPC", "Protocol Buffers"],
+        prUrl: "https://github.com/farcasterxyz/snapchain/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr",
+        description: "Added BLOCK_CONFIRMED events and filtered GetEvents queries so developers can observe and query chain sync.",
+        tags: ["Rust", "RocksDB", "gRPC"],
       },
     ],
   },
   {
     org: "Liberdus",
+    logo: organizationLogos["Liberdus"],
     url: "https://liberdus.com",
-    stage: "Mainnet · Messaging",
-    context:
-      "Quantum-secure decentralized messaging and payments on Shardus — send encrypted messages and crypto in one transaction. Community-funded model with no VC or pre-mine (210M LIB fixed supply). Cross-chain bridge and TSS signing infrastructure live.",
+    stage: "Mainnet \u00b7 Messaging",
     repos: [
+      {
+        name: "Liberdus TSS Signer",
+        repo: "https://github.com/Liberdus/tss-signer",
+        prUrl: "https://github.com/Liberdus/tss-signer/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr",
+        description: "Fixed signing deadlocks and added adaptive batching, cutting transaction finality time by 85%.",
+        tags: ["Rust", "TypeScript", "Cryptography"],
+      },
       {
         name: "Liberdus Proxy",
         repo: "https://github.com/Liberdus/liberdus-proxy",
-        description:
-          "Load-aware Rust proxy server that routes HTTP and WebSocket payloads from clients to the appropriate Liberdus validator — clients no longer need to track the node set themselves.",
-        tags: ["Rust", "HTTP", "WebSockets", "Load Balancing", "Proxy"],
+        prUrl: "https://github.com/Liberdus/liberdus-proxy/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr",
+        description: "Added observer and bridge-out gateways with transaction queries, making bridge status available to clients.",
+        tags: ["Rust", "WebSockets", "Load Balancing"],
       },
       {
         name: "Liberdus Bridge UI",
         repo: "https://github.com/Liberdus/liberdus-bridge-ui",
-        description:
-          "Next.js frontend for the Liberdus cross-chain bridge and BSC asset transfers within the unified messaging and payments interface.",
-        tags: ["TypeScript", "Next.js", "React", "Bridge"],
-      },
-      {
-        name: "Liberdus TSS Signer",
-        repo: "https://github.com/Liberdus/tss-signer",
-        description:
-          "Multi-network threshold signature signer with configurable routing, gas estimation, adaptive batch sizing, and Ed25519 signing/verification in Rust.",
-        tags: ["Rust", "TypeScript", "Node.js", "Cryptography"],
+        prUrl: "https://github.com/Liberdus/liberdus-bridge-ui/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr",
+        description: "Built bridge transaction views and streamlined data fetching, improving the flow for transferring assets.",
+        tags: ["TypeScript", "React", "Bridge"],
       },
     ],
   },
@@ -372,75 +327,90 @@ export const openSource = openSourceGroups.flatMap((group) => group.repos);
 export const research = [
   {
     title: "AI-based Market Intelligence for Farmer Collectives",
+    logo: organizationLogos["BITS Pilani"],
     org: "ACM JCSS · Google AI for Social Good · BITS Pilani",
-    period: "2021 – 2023",
+    period: "Research: Aug 2021 – Jul 2022 · Published: 2023",
     description:
       "Machine learning price forecasting and sales recommendations for soyabean farmer cooperatives in India. Built and field-tested a production Android application; experiments on historical data show modest income gains for farmers.",
-    url: "https://dl.acm.org/doi/10.1145/3600217",
+    url: "https://dl.acm.org/doi/10.1145/3609262",
     featured: true,
   },
   {
-    title: "Agentic AI Security",
-    org: "Georgia Tech — School of Cybersecurity and Privacy",
-    period: "2026 – Present",
+    title: "Agentic AI for Cybersecurity",
+    id: "soc-research",
+    logo: organizationLogos["Georgia Institute of Technology"],
+    org: "Georgia Tech, School of Cybersecurity and Privacy",
+    period: "Apr 2026 – Sep 2026",
     description:
-      "Investigating adversarial threats in LLMs and multi-agentic AI systems. Blue-team work on deterministic-schema consensus protocols and Wazuh SIEM workflows; red-team probe generation pipelines using cyber defense benchmarks.",
+      "Built multi agent systems for autonomous SOC investigations under Prof. Vijay Madisetti.\n\nAgents retrieve evidence with SecureBERT RAG over MITRE ATT&CK, D3FEND, CWE and Sigma rules, then cross check conclusions with Byzantine fault tolerant quorum voting.\n\nFine tuned Qwen2.5 14B with LoRA, built XGBoost and HDBSCAN log injection detectors, and benchmarked on ExCyTIn and OpenSec.",
   },
   {
     title: "Federated Learning in IoT",
+    logo: organizationLogos["BITS Pilani"],
     org: "BITS Pilani",
     period: "2022",
     description:
-      "Surveyed ML optimization for resource-constrained IoT with LoRA and federated learning. Configured testbeds with Arduino Uno, Raspberry Pi, and Python scripts.",
+      "Surveyed ML optimization for resource constrained IoT with federated learning, and built testbeds with Arduino Uno, Raspberry Pi and Python.",
   },
   {
-    title: "Security of Low-Cost Android Devices",
+    title: "Security of Low Cost Android Devices",
+    logo: organizationLogos["BITS Pilani"],
     org: "BITS Pilani",
     period: "2021 – 2022",
     description:
-      "Studied bloatware and third-party apps on low-cost Android devices using Wireshark PCAP analysis, Battery Historian, and user studies on network traffic and response speeds.",
+      "Analyzed bloatware and third party apps on budget Android phones using Wireshark PCAP captures, Battery Historian and user studies.",
   },
 ];
 
 export const education = [
   {
     school: "Georgia Institute of Technology",
+    logo: organizationLogos["Georgia Institute of Technology"],
     degree: "M.S. in Computer Science",
     detail:
-      "Grade: 4.0/4.0 · Specialization: Machine Learning / AI with focus on Computing Systems · Research: AI Security for Multi-Agentic Systems",
-    period: "Present",
+      "GPA: 4.0/4.0 · Specialization: Machine Learning",
+    period: "Completed",
     location: "USA",
   },
   {
-    school: "BITS Pilani Hyderabad",
+    school: "BITS Pilani",
+    logo: organizationLogos["BITS Pilani"],
     degree: "B.E. in Electronics and Communication Engineering",
     detail:
       "Merit scholarships each semester (ISA program) · Thesis: horizontally scalable service to monitor nodes in decentralized communication systems",
-    period: "2023",
+    period: "Completed",
     location: "India",
   },
 ];
 
 export const skillGroups = [
   {
-    label: "Languages",
-    skills: ["Rust", "TypeScript", "Python", "C++", "Java"],
-  },
-  {
     label: "Core Expertise",
     skills: [
       "Distributed Systems",
-      "Performance Optimization",
-      "Consensus Protocols",
-      "Cryptography",
-      "AI Security",
+      "Applied AI",
+      "AI Infrastructure",
+      "Cybersecurity",
     ],
+  },
+  {
+    label: "AI & ML",
+    skills: ["PyTorch", "Hugging Face", "LangGraph", "RAG", "Qdrant", "XGBoost"],
+  },
+  {
+    label: "Infrastructure",
+    skills: ["AWS", "Docker", "Kubernetes", "GitHub Actions", "PostgreSQL", "SQLite"],
+  },
+  {
+    label: "Languages",
+    skills: ["Python", "TypeScript", "Rust", "C++"],
   },
   {
     label: "Backend & APIs",
     skills: [
       "Node.js",
       "Express.js",
+      "FastAPI",
       "REST",
       "JWT",
       "WebSockets",
@@ -450,60 +420,32 @@ export const skillGroups = [
   },
   {
     label: "Frontend",
-    skills: ["React.js", "Vue.js", "Nuxt.js", "JavaScript"],
-  },
-  {
-    label: "Infrastructure",
-    skills: [
-      "Docker",
-      "Kubernetes",
-      "GitHub Actions",
-      "PostgreSQL",
-      "SQLite",
-      "Firebase",
-    ],
-  },
-  {
-    label: "ML & Data",
-    skills: ["XGBoost", "Pandas", "NumPy", "Matplotlib"],
+    skills: ["React", "TypeScript"],
   },
 ];
 
-export const certifications = [
-  "Ultimate Rust 2: Intermediate & Advanced Concepts",
-  "Ultimate Rust Crash Course",
-  "AWS & Udacity Machine Learning Scholarship",
-  "Google Cloud — Create and Manage Cloud Resources",
-  "Duke University — Java Programming",
-];
-
-export const references = [
-  {
-    name: "Omar Syed",
-    title: "CTO, Shardus & Liberdus",
-    link: "https://linkedin.com/in/omarsyed1",
-    note: "Co-Founder of ARIMAA & Shardeum; Principal Architect at Zynga & Yahoo",
-  },
-  {
-    name: "Marc Hanson",
-    title: "Co-Founder & Partner, Super Mega Lab",
-    link: "https://linkedin.com/in/marc-hanson-579469a",
-    note: "Former VP Engineering at Shardeum; CTO at BossFight; Director at Zynga",
-  },
+export const certifications: { name: string; detail?: string; url?: string; logo: string }[] = [
+  { name: "AWS Certified AI Practitioner", logo: "/logos/aws.svg", detail: "Issued Sep 2026 · Valid through Sep 2029", url: "https://www.credly.com/badges/759e09a5-030c-4137-af18-6237a8611eec/public_url" },
+  { name: "Ultimate Rust 2: Intermediate & Advanced Concepts", logo: "/logos/rust.svg", detail: "Udemy · Issued Oct 2023", url: "https://www.udemy.com/certificate/UC-4a15290c-ab2c-41d7-9192-5d4284611821/" },
+  { name: "Ultimate Rust Crash Course", logo: "/logos/rust.svg", detail: "Udemy · Issued Sep 2023", url: "https://www.udemy.com/certificate/UC-cf845bdf-a1ce-4039-99f0-82b43b6830f4/" },
+  { name: "UC San Diego: Algorithmic Toolbox", logo: "/logos/uc-san-diego.ico", detail: "Coursera · Issued Sep 2021", url: "https://www.coursera.org/account/accomplishments/certificate/SLFWSQ3WPY5H" },
+  { name: "Google Cloud: Create and Manage Cloud Resources", logo: "/logos/google-g.png", detail: "Google Cloud Education · Issued Sep 2021", url: "https://www.skills.google/public_profiles/d141f890-59b4-4933-a937-df23c53efcaf/badges/1233454" },
+  { name: "Java Programming: Solving Problems with Software", logo: "/logos/duke.png", detail: "Duke University · Coursera · Issued Sep 2021", url: "https://www.coursera.org/account/accomplishments/certificate/H5GTZJ3SGBTB" },
 ];
 
 export type NavLink = {
   id: string;
   label: string;
-  icon: "home" | "experience" | "projects" | "opensource" | "research" | "about" | "contact";
+  icon: "home" | "experience" | "projects" | "opensource" | "research" | "certifications" | "about" | "contact";
 };
 
 export const navLinks: NavLink[] = [
   { id: "home", label: "Home", icon: "home" },
+  { id: "about", label: "About", icon: "about" },
   { id: "experience", label: "Experience", icon: "experience" },
   { id: "research", label: "Research", icon: "research" },
-  { id: "projects", label: "Projects", icon: "projects" },
   { id: "opensource", label: "Open Source", icon: "opensource" },
-  { id: "about", label: "About", icon: "about" },
+  { id: "projects", label: "Projects", icon: "projects" },
+  { id: "certifications", label: "Certifications", icon: "certifications" },
   { id: "contact", label: "Contact", icon: "contact" },
 ];

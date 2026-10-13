@@ -164,12 +164,11 @@ export function createGalaxyScene(
   }
   const linesGeo = new THREE.BufferGeometry();
   linesGeo.setAttribute("position", new THREE.Float32BufferAttribute(linePositions, 3));
-  scene.add(
-    new THREE.LineSegments(
-      linesGeo,
-      new THREE.LineBasicMaterial({ color: 0xffe81f, transparent: true, opacity: 0.16 }),
-    ),
+  const connections = new THREE.LineSegments(
+    linesGeo,
+    new THREE.LineBasicMaterial({ color: 0xffe81f, transparent: true, opacity: 0.16 }),
   );
+  scene.add(connections);
 
   const starship = createStarship();
   const ship = starship.group;
@@ -201,6 +200,7 @@ export function createGalaxyScene(
   let mouseClimb = 0;
   let mouseTurn = 0;
   let pointerDown = false;
+  let activePointerId: number | null = null;
   let lastPointerX = 0;
   let lastPointerY = 0;
 
@@ -325,6 +325,7 @@ export function createGalaxyScene(
     if (!target || discovered.has(target.id)) return;
 
     discovered.add(target.id);
+    complete = discovered.size === ORBIT_PLANETS.length;
     onScan(target);
     publishState();
   }
@@ -345,8 +346,9 @@ export function createGalaxyScene(
   }
 
   function onPointerDown(event: PointerEvent) {
-    if (!started || event.button !== 0) return;
+    if (!started || event.button !== 0 || pointerDown) return;
     pointerDown = true;
+    activePointerId = event.pointerId;
     lastPointerX = event.clientX;
     lastPointerY = event.clientY;
     container.setPointerCapture(event.pointerId);
@@ -354,7 +356,7 @@ export function createGalaxyScene(
   }
 
   function onPointerMove(event: PointerEvent) {
-    if (!started || !pointerDown) return;
+    if (!started || !pointerDown || event.pointerId !== activePointerId) return;
 
     const deltaX = lastPointerX - event.clientX;
     const deltaY = lastPointerY - event.clientY;
@@ -366,8 +368,9 @@ export function createGalaxyScene(
   }
 
   function onPointerUp(event: PointerEvent) {
-    if (!pointerDown) return;
+    if (!pointerDown || event.pointerId !== activePointerId) return;
     pointerDown = false;
+    activePointerId = null;
     mouseClimb = 0;
     mouseTurn = 0;
     if (container.hasPointerCapture(event.pointerId)) {
@@ -382,6 +385,7 @@ export function createGalaxyScene(
   }
 
   function onKeyDown(event: KeyboardEvent) {
+    if (event.target instanceof HTMLElement && event.target.closest("button, a, input, textarea, select, [contenteditable]")) return;
     if (event.key === " ") {
       keys.add(" ");
       if (started) event.preventDefault();
@@ -403,12 +407,27 @@ export function createGalaxyScene(
     keys.delete(event.key.toLowerCase());
   }
 
+  function resetInput() {
+    keys.clear();
+    input = { ...defaultInput };
+    if (activePointerId !== null && container.hasPointerCapture(activePointerId)) {
+      container.releasePointerCapture(activePointerId);
+    }
+    activePointerId = null;
+    pointerDown = false;
+    mouseClimb = 0;
+    mouseTurn = 0;
+    container.classList.remove("galaxy-canvas-dragging");
+  }
+
   window.addEventListener("keydown", onKeyDown);
   window.addEventListener("keyup", onKeyUp);
+  window.addEventListener("blur", resetInput);
   container.addEventListener("pointerdown", onPointerDown);
   container.addEventListener("pointermove", onPointerMove);
   container.addEventListener("pointerup", onPointerUp);
   container.addEventListener("pointercancel", onPointerUp);
+  container.addEventListener("lostpointercapture", onPointerUp);
   container.addEventListener("wheel", onWheel, { passive: false });
 
   function animate() {
@@ -577,14 +596,18 @@ export function createGalaxyScene(
     resizeObserver.disconnect();
     window.removeEventListener("keydown", onKeyDown);
     window.removeEventListener("keyup", onKeyUp);
+    window.removeEventListener("blur", resetInput);
     container.removeEventListener("pointerdown", onPointerDown);
     container.removeEventListener("pointermove", onPointerMove);
     container.removeEventListener("pointerup", onPointerUp);
     container.removeEventListener("pointercancel", onPointerUp);
+    container.removeEventListener("lostpointercapture", onPointerUp);
     container.removeEventListener("wheel", onWheel);
     renderer.dispose();
     starsGeo.dispose();
+    (stars.material as THREE.Material).dispose();
     linesGeo.dispose();
+    connections.material.dispose();
     nodeVisuals.forEach(({ mesh, glow, ring, label }) => {
       mesh.geometry.dispose();
       (mesh.material as THREE.Material).dispose();
@@ -609,7 +632,8 @@ export function createGalaxyScene(
     start: () => {
       started = true;
       enemyField.prime();
-      void audio.resume().then(() => audio.startAmbient());
+      // Audio support must not prevent the demo from running.
+      void audio.resume().then(() => audio.startAmbient()).catch(() => {});
       publishState();
     },
     setInput: (partial) => {

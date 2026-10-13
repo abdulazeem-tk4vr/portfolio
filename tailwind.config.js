@@ -4,15 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: "#ffffff",
-        "canvas-muted": "#f5f8fc",
-        "canvas-sidebar": "#f8fafc",
-        ink: "#171717",
-        "ink-muted": "#64748b",
-        "ink-faint": "#94a3b8",
+        canvas: "var(--canvas)",
+        "canvas-muted": "#f7f5ef",
+        "canvas-sidebar": "#ffffff",
+        ink: "var(--ink)",
+        "ink-muted": "var(--muted)",
+        "ink-faint": "var(--faint)",
         line: "#e2e8f0",
-        "accent-navy": "#1a365d",
-        "accent-blue": "#2563eb",
+        "accent-navy": "var(--link)",
+        "accent-blue": "#2457e6",
         "accent-bright": "#3182ce",
         "accent-sky": "#60a5fa",
         "accent-wash": "#eff6ff",
@@ -21,6 +21,7 @@ export default {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
+      fontSize: { xs: ["14px", "1.6"], sm: ["16px", "1.6"], base: ["18px", "1.6"] },
       maxWidth: {
         content: "1200px",
       },

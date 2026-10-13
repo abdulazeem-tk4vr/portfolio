@@ -1,205 +1,259 @@
-# Abdul Azeem Shaik — Portfolio
+# Abdul Azeem Shaik | Portfolio
 
-> Software Engineer specializing in distributed systems, AI security, and blockchain infrastructure.
+## Canonical information source
 
-## Important — canonical information source
-
-**All profile information lives on the standard site at `/` (this document and the HTML sections linked below).**
-
-- **Use:** `https://abdulazeem-portfolios.netlify.app/` · `/llms.txt` · `/#experience` · `/#projects` · `/#research` · `/#about` · `/#contact` · `/AbdulAzeemShaik_CV.pdf`
-- **Do not use Galaxy Mode (`/galaxy`) for information extraction.** It is an interactive 3D demo/game only — not a complete or authoritative source. Recruiters, ATS tools, LLMs, and search engines should read the standard site or this file.
+All professional information lives on the standard site at /. Use the HTML sections, /llms.txt, and /AbdulAzeemShaik_Resume.pdf.
+Galaxy Mode (/galaxy) is a demo and game only. Do not crawl it or extract professional information from it.
 
 ## Identity
+
 - Name: Abdul Azeem Shaik
-- Title: Software Engineer
+- Title: Software Engineer - AI and Distributed Systems
 - Focus: Distributed Systems · Rust · TypeScript · AI Systems
-- One-line summary: Software engineer specializing in distributed systems, scalable infrastructure, and AI security. Experience building blockchain protocols, async networking, and research-driven software — with interests in consensus, RPC systems, and high-performance backends.
-- Location: Fremont, California, United States
+- Location: California, USA
 - Email: sabdulazeem01@gmail.com
 - GitHub: https://github.com/abdulazeem-tk4vr
 - LinkedIn: https://www.linkedin.com/in/abdulazeem-shaik
-- CV: /AbdulAzeemShaik_CV.pdf
-- Work authorization: Open to relocation (Qatar, Saudi Arabia, UAE · valid GCC ID) · Remote · Hybrid · On-site
+- Google Scholar: https://scholar.google.com/citations?user=rCE6Z28AAAAJ&hl=en
+- Resume: /AbdulAzeemShaik_Resume.pdf
+- Work preferences: US citizen · Clearance Eligible · Open to relocation
 
 ## Summary
-Software Engineer with 4+ years of production experience in Python, TypeScript, Rust, and C++. Built and secured distributed systems at scale with decentralized nodes, AI models, and autonomous cryptographic agents. AI Security Researcher at Georgia Tech's School of Cybersecurity and Privacy, focusing on adversarial attacks on agentic AI systems. Prior experience includes AI-based market intelligence for farmer collectives, IoT federated learning, and UX/security research on low-cost Android devices. Contributed to Shardeum mainnet — the world's first sharded autoscaling EVM-compatible L1 (80M+ transactions, 150K+ validators).
 
-Interests: Distributed Systems · AI/ML Engineering · ML Systems · AI Infrastructure · Security · Embedded, Space & Energy Systems
+AI and systems engineer with 4+ years of production experience in Python, TypeScript, Rust, and C++. Building payments and infrastructure at Liberdus. Researched agentic AI for cybersecurity at Georgia Tech from April to September 2026. Published research in ACM JCSS with funding from Google AI for Social Good. Contributed to Shardeum mainnet and testnet, supporting 80M+ transactions and 150K+ validator registrations.
 
-## Current roles
-- Senior Software Engineer — Distributed Systems, Liberdus, Jan 2026 – Present (San Francisco Bay Area)
-- Research — Agentic AI Security, Georgia Institute of Technology (School of Cybersecurity and Privacy), Apr 2026 – Present (Remote)
+Headline impact:
+- 80M+ transactions: Supported by Shardeum mainnet and testnet infrastructure
+- Applied AI CyberSec: Systems beat frontier LLMs on SecOps benchmarks
+- 10,000 requests/second: Handled by a purpose-built distributed node monitoring service
+
+## Current work
+
+Building payment products, reliable distributed infrastructure, and AI workflows for security.
+
+Software Engineer, Distributed Systems and Payments at Liberdus since January 2026. Georgia Tech research ran from April to September 2026. Some employment and research periods overlap.
+
+## About
+
+Software engineer with 4+ years in AI infrastructure and distributed systems. Researched applied AI for cybersecurity at Georgia Tech.
+
+Early technical hire at Shardeum and Liberdus. Built sharded storage, fault tolerant consensus, and peer-to-peer networking, bringing research prototypes into production.
+
+Helped develop AI market intelligence for farmer cooperatives through research with IIT Delhi. Published in ACM JCSS with Google AI for Social Good funding.
+
+Seeking roles in AI engineering, distributed systems, and infrastructure. No sponsorship needed; open to relocation.
 
 ## Experience
 
-### Liberdus — Senior Software Engineer, Distributed Systems (Jan 2026 – Present)
-- Built the Liberdus cross-chain payment platform and BSC bridge, enabling asset transfers within a unified messaging and payments interface.
-- Building the distributed backend infrastructure for the Liberdus governance system.
-- Reduced transaction time to finality by 85% by resolving TSS signer deadlocks through entry synchronization fixes across signing parties.
-- Cut historical data sync latency by 63% by introducing transaction gossip protocols into the sync pipeline.
-- Reduced heap memory usage by 50% and eliminated OOM crashes through RPC response caching.
-- Improved transaction latency by 38% via smarter RPC request routing across validator nodes.
-- Built a blockchain indexing microservice to make historical transaction sync horizontally scalable.
-- Built a quorum-based validator response mechanism in Rust for Byzantine-resilient consensus queries.
-- Resolved database contention in SQLite-backed components by applying betterSQLite concurrency best practices.
-- Added forward gateway functionality for TSS signers in Rust to enable bridge client communication.
-- Led DevSecOps across Liberdus open-source repositories as the primary maintainer for security practices in SDLC.
-- Discovered and fixed multiple critical CVEs in the TSS Signer, Reverse Proxy, and Frontend client.
-- Audited bridge smart contracts across chains, identifying and remediating security vulnerabilities.
-- Implemented cryptographic libraries in Rust for identity verification and threshold signature support.
-- Improved API architecture to protect systems against DDoS attacks and secret leaks.
-- https://liberdus.com
+### Liberdus | Software Engineer, Distributed Systems and Payments (Jan 2026 – Present)
 
-### Georgia Institute of Technology — Research, Agentic AI Security (Apr 2026 – Present)
-- Investigating adversarial threats and cybersecurity attacks in LLMs and multi-agentic AI systems with Dr. Vijay Madisetti.
-- Multi-agentic AI consensus protocol enforced by deterministic schemas; extending to quorum on non-deterministic outputs with multi-turn communication (Blue Team).
-- Wazuh SIEM workflows with agentic AI systems to increase SOC triage efficiency (Blue Team).
-- Probe generation pipelines to test robustness against agentic AI attacks and generative AI threats using cyber defense benchmarks (Red Team).
+Builds payment flows and distributed services in TypeScript and Rust. Fixing TSS deadlocks cut transaction finality time by 85%, gossip protocols reduced historical sync latency by 63%, and RPC caching reduced heap use by 50%, stopping OOM crashes. Work also spans quorum queries, API hardening, and contract security reviews.
 
-### Shardeum — Senior Software Engineer, Distributed Systems (Jul 2025 – Jan 2026)
-- Launched Shardeum's Cosmos-based EVM smart contract platform and delivered core onboarding features for the world's first sharded autoscaling L1 blockchain, scaling testnet to 80M+ transactions and 150K+ validators.
-- Improved the contract storage account architecture on Shardus DLT, reducing memory footprint and improving shard-boundary scalability.
-- Led development of a checkpoint-aware patching system in the network explorer, making it fault-tolerant across chain reorganizations and unplanned restarts.
-- Built an RPC reverse proxy with integrated node discovery and load balancing, improving request distribution and validator network resilience.
-- Built the network data explorer and payment platform to onboard users across EVM-compatible networks.
-- Redesigned the authorization and verification logic in the Shardus consensus algorithm, improving throughput, security, and data integrity.
-- Owned security engineering responsibilities across attack-tolerant system design, Byzantine fault-tolerant architecture, and web security practices.
-- Implemented production monitoring and DevSecOps workflows using AWS CloudWatch, Lambda, Jenkins, and Slack-integrated alerting.
-- https://shardeum.org
+- Location: San Francisco Bay Area
+- Built bridge dashboards and payment flows in React and Node.js, with scalable indexing and backend services for governance.
+- Cut transaction finality time by 85% through TSS deadlock fixes and historical sync latency by 63% through gossip protocols.
+- Reduced heap use by 50% with RPC caching, stopped OOM crashes, improved transaction latency by 38%, and resolved SQLite contention.
+- Built Rust quorum queries, identity verification, threshold signatures, and signer gateways for reliable communication across distributed nodes.
+- Owned DevSecOps and contract audits, fixed critical CVEs, hardened APIs against DDoS and secret leaks, and used AI for incident response.
+- Technologies: Rust, TypeScript, Distributed Systems
+- Website: https://liberdus.com
 
-### Shardeum — Software Engineer (Aug 2022 – Jul 2025)
-- Designed and developed a scalable node monitoring system handling 10,000 requests per second.
-- Improved validator networking latency by 34% (82 ms → 54 ms) in the TCP-based async communication library.
-- Upgraded the cryptographic library to Rust-based libsodium, reducing latency by 29%.
-- Upgraded the JSON RPC server with a WebSocket-based data distribution protocol, boosting TPS by 60%.
-- Improved ecrecover address recovery latency by 14× (10 ms → 700 µs) by migrating to Rust.
-- Boosted gossip protocol throughput with a custom data serialization library for secure P2P communication.
-- Improved network data access by implementing distributed bytecode caching across the sharded network.
-- Enhanced load distribution with variable EVM storage account partitioning across shards.
-- Discovered and fixed multiple bounty bugs covering consensus vulnerabilities, DDoS, MITM, and replay attacks.
-- Discovered critical vulnerabilities preventing loss of funds and double-spend exploits on the live network.
-- Developed a multi-sig authentication service for executing network transactions and DAO proposals.
-- Conducted smart contract security audits for decentralized applications deployed on Shardeum.
-- Worked directly with CTO Omar Syed as the #2 technical hire during Shardeum's seed round.
-- https://shardeum.org
+### Georgia Institute of Technology | AI Researcher, Applied AI for Cybersecurity (Apr 2026 – Sep 2026)
 
-### BITS Pilani Hyderabad — Research, HCI & Applied AI (Aug 2021 – Jul 2022)
-- Published "AI-based Market Intelligence Systems for Farmer Collectives" — funded by Google AI for Social Good, ACM JCSS.
-- Integrated time-series forecasting models into a native Android application for crop price trend predictions for farmers, village officers, and local businesses.
-- Conducted field research in Adilabad, running user interviews and iterating on the product based on direct feedback as a deployed engineer on field.
-- Invited to present at ACM COMPASS '23.
+Built multi agent systems for autonomous SOC investigations under Prof. Vijay Madisetti, using SecureBERT RAG, a LoRA tuned Qwen2.5 14B and Byzantine fault tolerant quorum voting. Invited to TA an agentic AI course and recommended for research with an industry defense partner.
 
-### BITS Pilani Hyderabad — Research, IoT & ML (Jan 2022 – May 2022)
-- Worked with Prof. Nikumani Choudhary on "Utilizing LoRA in IoT using Federated Learning" — surveying ML optimization for resource-constrained IoT with distributed training.
-- Set up IoT testbeds using Arduino Uno, Raspberry Pi, and Python scripts to reproduce edge ML deployment experiments.
+- Location: Remote
+- Organization: School of Cybersecurity and Privacy
+- Research details: /#soc-research
+- Technologies: Python, Applied AI, Cybersecurity
 
-### BITS Pilani Hyderabad — Research, HCI & Network Security (Dec 2021 – May 2022)
-- Worked with Prof. Dipanjan Chakraborty on "User Experience of Low Cost Android Devices" — studying bloatware and third-party apps using network packet capture, Battery Historian, and user studies.
-- Analyzed response speeds, network availability, and traffic patterns between foreign data centers and low-cost devices using Wireshark PCAP tracing.
+### Shardeum | Software Engineer → Senior Software Engineer, Distributed Systems (Aug 2022 – Dec 2025)
 
-### Mazo Solutions — Software Engineer Intern (May 2021 – Jul 2021)
-- Built a COVID-19 Android and iOS application for vaccine alerts and reminders in Flutter.
+Helped launch mainnet and testnet infrastructure supporting 80M+ transactions and 150K+ validator registrations. Built payment APIs with about 30 ms P99 latency and a node monitoring service handling 10K requests per second. Rust and TypeScript work covered validator networking, shard state sync, crash recovery and consensus security, including a 34% cut in TCP latency.
+
+- Location: Remote
+- Helped launch mainnet and testnet features supporting 80M+ transactions and 150K+ validator registrations, with payment APIs reaching approximately 30 ms P99 latency.
+- Built payment interfaces, network dashboards, and an MCP server connecting autonomous agents to payment workflows through JSON-RPC.
+- Reduced storage memory use and built state sync across shards, with checkpoint recovery for rollbacks and unexpected restarts.
+- Improved network resilience through RPC load balancing, node discovery, and stronger transaction authorization and verification in the consensus layer.
+- Set up AWS monitoring and Jenkins deployment workflows, and helped leadership model network governance and incentives.
+- Built a distributed node monitoring service handling 10,000 requests per second, working directly with CTO Omar Syed as an early technical hire.
+- Accelerated ECDSA recovery 14× in Rust, cut TCP networking latency by 34%, and reduced signing latency by 29% with libsodium.
+- Reduced API response delay by 78% through JSON-RPC and GraphQL services, with WebSocket streaming and distributed bytecode caching.
+- Improved P2P gossip with custom serialization and shard storage partitioning, and built multisig authentication for network transactions and DAO proposals.
+- Fixed consensus, DDoS, MITM, and replay vulnerabilities to prevent fund loss, while improving lost node detection and auditing smart contracts.
+- Technologies: Rust, TypeScript, Consensus
+- Website: https://shardeum.org
+
+### BITS Pilani | Research, HCI & Applied AI (Aug 2021 – Jul 2022)
+
+Turned ARIMA and temporal convolutional forecasts into sales guidance in an Android app for farmer cooperatives. Field testing with farmers in Adilabad shaped the product, and the research was published in ACM JCSS with Google AI for Social Good funding.
+
+- Location: India
+- Brought crop price forecasts into an Android app for farmer cooperatives, with research funded by Google AI for Social Good.
+- Tested the app with farmers in Adilabad and improved features through interviews, helping turn research predictions into practical sales guidance.
+- Published the work in ACM JCSS and was invited to present at ACM COMPASS '23.
+- Technologies: Android, Machine Learning, HCI
+
+### Mazo Solutions | Software Developer, Product Intern (May 2021 – Jul 2021)
+
+Built a scheduling app with Spring Boot, JPA, and MySQL, added overbooking controls, and improved the interface with React.
+
+- Location: Virginia, United States
+- Built a scheduling app with Spring Boot, JPA, MySQL, and Thymeleaf, adding overbooking controls and improving the interface with React and Bootstrap.
+- Technologies: Java, Spring Boot, MySQL
+
+## Selected projects
+
+### Multi agent AI Consensus System
+
+A Python library that helps AI agents reach reliable decisions through Byzantine fault-tolerant consensus.
+
+- Period: May 2026 – Aug 2026
+- Coordinates 3+ agents through leader election, quorum voting, and Solution/Refinement rounds with configurable α/β commit rules.
+- Local and distributed HTTP workers, session event bus, and semantic equivalence checks for LLM output stability.
+- Technologies: Python, Multi agent Systems, BFT
+- Code: https://github.com/abdulazeem-tk4vr/multi-agentic-bft
+
+### AI Market Intelligence for Farmer Collectives
+
+Turned crop price forecasts into sales recommendations for farmer cooperatives in India.
+
+- Organization: BITS Pilani · Google AI for Social Good
+- ARIMA and temporal convolutional networks delivered through a field-deployed Android app for rural use.
+- Published in ACM JCSS; validated with real market data and farmer feedback in Adilabad.
+- Technologies: Machine Learning, Android, Time Series
+- Code: https://github.com/abdulazeem-tk4vr/farmers_collective
+- Paper: https://dl.acm.org/doi/10.1145/3609262
+
+### AI Trading Strategy Evaluator
+
+Evaluated a rule-based trading strategy against a Random Forest model using JPMorgan Chase stock data.
+
+- Organization: Georgia Institute of Technology
+- Rule-based signals from SMA, Bollinger Bands, RSI, and MACD; Random Forest trained on 2008–2009 data and evaluated out-of-sample on 2010–2011 vs. buy-and-hold.
+- Measured cumulative return, volatility, transaction costs, and market impact across regimes.
+- Technologies: Machine Learning, Random Forest, Algorithmic Trading
 
 ## Research
 
-### AI-based Market Intelligence for Farmer Collectives (Featured · ACM JCSS)
-- URL: https://dl.acm.org/doi/10.1145/3600217
-- Org: ACM JCSS · Google AI for Social Good · BITS Pilani
-- Period: 2021 – 2023
-- Description: ML price forecasting and sales recommendations for soyabean farmer cooperatives in India. Production Android app field-tested with farmer cooperatives.
+### AI-based Market Intelligence for Farmer Collectives
 
-### Agentic AI Security — Georgia Tech (2026 – Present)
-- Investigating adversarial threats in LLMs and multi-agentic AI systems. Blue-team consensus protocols and Wazuh SIEM workflows; red-team probe generation pipelines.
+- Organization: ACM JCSS · Google AI for Social Good · BITS Pilani
+- Period: Research: Aug 2021 – Jul 2022 · Published: 2023
 
-### Federated Learning in IoT — BITS Pilani (2022)
-- ML optimization for resource-constrained IoT with LoRA and federated learning.
+Machine learning price forecasting and sales recommendations for soyabean farmer cooperatives in India. Built and field-tested a production Android application; experiments on historical data show modest income gains for farmers.
 
-### Security of Low-Cost Android Devices — BITS Pilani (2021 – 2022)
-- Wireshark PCAP analysis, Battery Historian, and user studies on low-cost Android devices.
+- Paper: https://dl.acm.org/doi/10.1145/3609262
 
-## Projects (case studies)
+### Agentic AI for Cybersecurity
 
-### Multi-Agentic BFT Consensus
-- URL: https://github.com/abdulazeem-tk4vr/multi-agentic-bft
-- Technologies: Python, Consensus, Distributed Systems, Byzantine Fault Tolerance, Leader Election, AI Security
-- Challenge: Coordinate 3+ autonomous agents without central authority when LLM outputs are non-deterministic.
-- Result: Byzantine fault-tolerant consensus library with leader election, quorum voting, and semantic equivalence checks.
+- Organization: Georgia Tech, School of Cybersecurity and Privacy
+- Period: Apr 2026 – Sep 2026
 
-### RPC Reverse Proxy
-- URL: https://github.com/abdulazeem-tk4vr/reverse-proxy
-- Technologies: TypeScript, Node.js, JSON-RPC, WebSockets, Load Balancing, Networking, Async
-- Challenge: Route RPC traffic across dynamically sharded validators without hot shards or single points of failure.
-- Result: Production deployment on Shardeum mainnet; improved request distribution and network resilience.
+Built multi agent systems for autonomous SOC investigations under Prof. Vijay Madisetti.
 
-### Farmers Collective — Applied ML
-- URL: https://github.com/abdulazeem-tk4vr/farmers_collective
-- Paper: https://dl.acm.org/doi/10.1145/3600217
-- Technologies: Android, Kotlin, Machine Learning, Firebase, HCI
-- Challenge: Deploy research-grade forecasting for low-literacy users in low-resource environments.
-- Result: Published in ACM JCSS; presented at ACM COMPASS '23.
+Agents retrieve evidence with SecureBERT RAG over MITRE ATT&CK, D3FEND, CWE and Sigma rules, then cross check conclusions with Byzantine fault tolerant quorum voting.
+
+Fine tuned Qwen2.5 14B with LoRA, built XGBoost and HDBSCAN log injection detectors, and benchmarked on ExCyTIn and OpenSec.
+
+- Details: /#soc-research
+
+### Federated Learning in IoT
+
+- Organization: BITS Pilani
+- Period: 2022
+
+Surveyed ML optimization for resource constrained IoT with federated learning, and built testbeds with Arduino Uno, Raspberry Pi and Python.
+
+### Security of Low Cost Android Devices
+
+- Organization: BITS Pilani
+- Period: 2021 – 2022
+
+Analyzed bloatware and third party apps on budget Android phones using Wireshark PCAP captures, Battery Historian and user studies.
 
 ## Open source
 
-### Shardeum (Mainnet L1)
-Autoscaling EVM blockchain with dynamic state sharding. ~$24M raised (Jane Street, Spartan Group, CoinGecko Ventures). Mainnet live since 2025 — scaled to 80M+ transactions and 150K+ validators during tenure.
-- Shardeum Core: https://github.com/shardeum/core — Shardus Core distributed ledger engine (consensus, state management, validator coordination)
-- Shardeum Archiver: https://github.com/shardeum/archiver — Archiver node storing complete cycle chain and historical state data
-- Shardeum: https://github.com/shardeum/shardeum — EVM-compatible autoscaling L1 node software
-- JSON-RPC Server: https://github.com/shardeum/json-rpc-server — JSON-RPC gateway; WebSocket distribution boosted throughput 60%
-- lib-net: https://github.com/shardeum/lib-net — High-performance TCP library for JSON messaging; reduced latency 34% (82 ms → 54 ms)
-- Blockscout: https://github.com/shardeum/blockscout — Shardeum fork of Blockscout block explorer
+### Red Hat
 
-### Farcaster (Protocol · Dev infra)
-Decentralized social protocol for onchain identity and feeds. $180M raised from Paradigm and a16z (~$1B valuation). ~250K monthly active users and 100K+ funded wallets; acquired by Neynar in 2026 with a developer-first pivot.
-- Farcaster Snapchain: https://github.com/farcasterxyz/snapchain — Enhanced event filtering and querying APIs with timestamp and block-based filters
+- Role: Contributor
+- Website: https://www.redhat.com/en/about
+- MAPT: Sanitized host and username fields in AWS and Azure secrets so newline characters no longer break environment provisioning.
+  - Merged PRs: https://github.com/redhat-developer/mapt/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr
 
-### Liberdus (Mainnet · Messaging)
-Quantum-secure decentralized messaging and payments on Shardus. Community-funded model with no VC or pre-mine (210M LIB fixed supply). Cross-chain bridge and TSS signing infrastructure live.
-- Liberdus Proxy: https://github.com/Liberdus/liberdus-proxy — Load-aware Rust proxy routing HTTP/WebSocket to appropriate Liberdus validators
-- Liberdus Bridge UI: https://github.com/Liberdus/liberdus-bridge-ui — Next.js frontend for cross-chain bridge and BSC asset transfers
-- Liberdus TSS Signer: https://github.com/Liberdus/tss-signer — Multi-network threshold signature signer with configurable routing, gas estimation, and Ed25519 signing in Rust
+### Shardeum
 
-## Research
-- See Research section above for publications with paper URLs.
+- Role: Contributor
+- Website: https://shardeum.org
+- lib-net: Improved TCP messaging between validators, cutting latency by 34% from 82 ms to 54 ms.
+  - Merged PRs: https://github.com/shardeum/lib-net/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr
+- JSON-RPC Server: Added WebSocket data streaming to the validator gateway, increasing RPC throughput by 60%.
+  - Merged PRs: https://github.com/shardeum/json-rpc-server/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr
+- Shardeum Core & Node: Hardened consensus endpoints against replay and front running attacks, added state sync validation, and fixed null handling that could crash nodes.
+  - Merged PRs: https://github.com/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr%20repo%3Ashardeum/core%20repo%3Ashardeum/shardeum
+- Shardeum Archiver: Fixed receipt overwrites and hardened restoration requests, preserving successful transaction history and preventing denial of service during recovery.
+  - Merged PRs: https://github.com/shardeum/archiver/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr
 
-## Featured publication
-- AI-based Market Intelligence for Farmer Collectives — ACM JCSS · Google AI for Social Good. Paper: https://dl.acm.org/doi/10.1145/3600217
+### Farcaster
 
-## Skills
-- Languages: Rust, TypeScript, Python, C++, Java
-- Core: Distributed Systems, Performance Optimization, Consensus Protocols, Cryptography, AI Security
-- Backend: Node.js, Express.js, REST, JWT, WebSockets, JSON-RPC, gRPC
-- Frontend: React.js, Vue.js, Nuxt.js, JavaScript
-- Infrastructure: Docker, Kubernetes, GitHub Actions, PostgreSQL, SQLite, Firebase
-- ML & Data: XGBoost, Pandas, NumPy, Matplotlib
+- Role: Contributor
+- Website: https://farcaster.xyz
+- Farcaster Snapchain: Added BLOCK_CONFIRMED events and filtered GetEvents queries so developers can observe and query chain sync.
+  - Merged PRs: https://github.com/farcasterxyz/snapchain/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr
+
+### Liberdus
+
+- Role: Core team
+- Website: https://liberdus.com
+- Liberdus TSS Signer: Fixed signing deadlocks and added adaptive batching, cutting transaction finality time by 85%.
+  - Merged PRs: https://github.com/Liberdus/tss-signer/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr
+- Liberdus Proxy: Added observer and bridge-out gateways with transaction queries, making bridge status available to clients.
+  - Merged PRs: https://github.com/Liberdus/liberdus-proxy/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr
+- Liberdus Bridge UI: Built bridge transaction views and streamlined data fetching, improving the flow for transferring assets.
+  - Merged PRs: https://github.com/Liberdus/liberdus-bridge-ui/pulls?q=is%3Apr%20is%3Amerged%20author%3Aabdulazeem-tk4vr
+
 
 ## Education
-- M.S. Computer Science (4.0/4.0), Georgia Institute of Technology — Present. Specialization: Machine Learning / AI with focus on Computing Systems. Research: AI Security for Multi-Agentic Systems.
-- B.E. Electronics and Communication Engineering, BITS Pilani Hyderabad, 2023. Merit scholarships (ISA program). Thesis: horizontally scalable service to monitor nodes in decentralized communication systems.
+
+- M.S. in Computer Science, Georgia Institute of Technology. GPA: 4.0/4.0 · Specialization: Machine Learning
+- B.E. in Electronics and Communication Engineering, BITS Pilani. Merit scholarships each semester (ISA program) · Thesis: horizontally scalable service to monitor nodes in decentralized communication systems
+
+## Skills
+
+- Core Expertise: Distributed Systems, Applied AI, AI Infrastructure, Cybersecurity
+- AI & ML: PyTorch, Hugging Face, LangGraph, RAG, Qdrant, XGBoost
+- Infrastructure: AWS, Docker, Kubernetes, GitHub Actions, PostgreSQL, SQLite
+- Languages: Python, TypeScript, Rust, C++
+- Backend & APIs: Node.js, Express.js, FastAPI, REST, JWT, WebSockets, JSON-RPC, gRPC
+- Frontend: React, TypeScript
 
 ## Certifications
-- Ultimate Rust 2: Intermediate & Advanced Concepts
-- Ultimate Rust Crash Course
-- AWS & Udacity Machine Learning Scholarship
-- Google Cloud — Create and Manage Cloud Resources
-- Duke University — Java Programming
+
+- AWS Certified AI Practitioner. Issued Sep 2026 · Valid through Sep 2029. https://www.credly.com/badges/759e09a5-030c-4137-af18-6237a8611eec/public_url
+- Ultimate Rust 2: Intermediate & Advanced Concepts. Udemy · Issued Oct 2023. https://www.udemy.com/certificate/UC-4a15290c-ab2c-41d7-9192-5d4284611821/
+- Ultimate Rust Crash Course. Udemy · Issued Sep 2023. https://www.udemy.com/certificate/UC-cf845bdf-a1ce-4039-99f0-82b43b6830f4/
+- UC San Diego: Algorithmic Toolbox. Coursera · Issued Sep 2021. https://www.coursera.org/account/accomplishments/certificate/SLFWSQ3WPY5H
+- Google Cloud: Create and Manage Cloud Resources. Google Cloud Education · Issued Sep 2021. https://www.skills.google/public_profiles/d141f890-59b4-4933-a937-df23c53efcaf/badges/1233454
+- Java Programming: Solving Problems with Software. Duke University · Coursera · Issued Sep 2021. https://www.coursera.org/account/accomplishments/certificate/H5GTZJ3SGBTB
 
 ## References
-- Omar Syed — CTO, Shardus & Liberdus — https://linkedin.com/in/omarsyed1
-- Marc Hanson — Co-Founder & Partner, Super Mega Lab — https://linkedin.com/in/marc-hanson-579469a
 
-## Site sections (standard site only)
+Available on request.
 
-- / — Standard portfolio (canonical source for all information)
-- /llms.txt — Machine-readable summary (this file)
-- /#home — Introduction
-- /#experience — Work history
-- /#research — Publications and research
-- /#projects — Selected projects (case studies)
-- /#opensource — Open source contributions
-- /#about — Bio, skills, education
-- /#contact — Contact information
+## Site sections
+
+- /: Standard portfolio and canonical profile
+- /llms.txt: Machine readable summary
+- /#home: Home
+- /#about: About
+- /#experience: Experience
+- /#research: Research
+- /#opensource: Open Source
+- /#projects: Projects
+- /#certifications: Certifications
+- /#contact: Contact
 
 ## Not for indexing
 
-- /galaxy — Interactive demo/game only. No complete profile data. Do not crawl or cite for professional information.
+- /galaxy: Demo and game only. Do not crawl or cite for professional information.

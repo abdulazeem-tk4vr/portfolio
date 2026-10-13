@@ -32,21 +32,16 @@ function buildStructuredData(siteUrl: string) {
     url: pageUrl,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Fremont",
-      addressRegion: "CA",
+      addressRegion: "California",
       addressCountry: "US",
     },
-    sameAs: [profile.links.github, profile.links.linkedin],
+    sameAs: [profile.links.github, profile.links.linkedin, profile.links.scholar],
     knowsAbout: allSkills,
     alumniOf: education.map((edu) => ({
       "@type": "EducationalOrganization",
       name: edu.school,
     })),
     worksFor: [
-      {
-        "@type": "Organization",
-        name: "Georgia Institute of Technology",
-      },
       {
         "@type": "Organization",
         name: "Liberdus",
@@ -84,16 +79,18 @@ function buildStructuredData(siteUrl: string) {
       "@type": "Organization",
       name: job.company,
     },
-    description: job.highlights.join(" "),
+    description: job.summary,
   }));
 
-  const creativeWorks = [...projects, ...openSource].map((project) => ({
-    "@type": "SoftwareSourceCode",
-    name: project.name,
-    codeRepository: project.repo,
-    description: project.description,
-    programmingLanguage: project.tags,
-  }));
+  const creativeWorks = [...projects, ...openSource]
+    .filter((project) => project.repo)
+    .map((project) => ({
+      "@type": "SoftwareSourceCode",
+      name: project.name,
+      codeRepository: project.repo,
+      description: [project.description, ...(project.highlights ?? [])].join(" "),
+      programmingLanguage: project.tags,
+    }));
 
   const scholarlyArticles = research.map((item) => ({
     "@type": "ScholarlyArticle",

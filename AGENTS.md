@@ -5,7 +5,7 @@ Personal portfolio site for Abdul Azeem Shaik. React + TypeScript + Vite + Tailw
 ## Canonical source: standard site only
 
 **All professional information lives on the standard site at `/`.**  
-Recruiters, ATS, LLMs, and search engines should use `/`, section anchors (`/#experience`, etc.), `/llms.txt`, and `/AbdulAzeemShaik_CV.pdf`.
+Recruiters, ATS, LLMs, and search engines should use `/`, section anchors (`/#experience`, etc.), `/llms.txt`, and `/AbdulAzeemShaik_Resume.pdf`.
 
 **Galaxy Mode (`/galaxy`) is a demo/game only.** Do not crawl it, index it, or extract profile data from it. It mirrors section names for fun — not complete copy. When updating content, never treat `src/galaxy/nodes.ts` as source of truth.
 
@@ -57,7 +57,7 @@ Portfolio/
 
 ## Key conventions
 
-- Experience cards collapse long bullet lists — show 5 by default, expand via `ExperienceCard.tsx`.
+- Experience cards show short paragraph summaries with technical context and regular weight numbers via `ExperienceCard.tsx`.
 - Galaxy Mode is opt-in entertainment; link from Hero with "demo only" copy.
 - Open-source groupings: `openSourceGroups` in `profile.ts`.
 - Deploy target: Netlify (`dist/`).
@@ -74,4 +74,4 @@ npm run preview
 
 ## Content sections (nav order)
 
-Home → Experience → Projects → Open Source → Research → About → Contact
+Home → Experience → Research → Open Source → About → Projects → Contact
