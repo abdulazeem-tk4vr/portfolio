@@ -14,13 +14,13 @@ test("portfolio renders complete navigation, current facts, and accessible proje
         import { ExperienceCard } from "./src/components/ExperienceCard";
         import { ProjectCard } from "./src/components/ProjectCard";
         import { RepoList } from "./src/components/RepoList";
-        import { experience, projects, research, education, skillGroups, openSource, navLinks, profile } from "./src/data/profile";
+        import { experience, projects, research, education, skillGroups, openSource, openSourceGroups, navLinks, profile } from "./src/data/profile";
         const render = (component, props) => renderToStaticMarkup(createElement(component, props));
         export const page = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(App)));
         export const firstRole = render(ExperienceCard, {job: experience[0]});
         export const noLinkProject = render(ProjectCard, {project: {name: "Offline research", description: "A study", tags: []}, index: 2});
         export const noLinkRepo = render(RepoList, {items: [{name: "Unpublished", description: "A study", tags: []}]});
-        export { experience, projects, research, education, skillGroups, openSource, navLinks, profile };
+        export { experience, projects, research, education, skillGroups, openSource, openSourceGroups, navLinks, profile };
       `,
       resolveDir: process.cwd(),
       loader: "tsx",
@@ -36,7 +36,7 @@ test("portfolio renders complete navigation, current facts, and accessible proje
   const code = bundle.outputFiles[0].text.replace(/from "(react(?:\/[^\"]+)?|react-dom\/server|react-router-dom)"/g,
     (_, name) => `from "${import.meta.resolve(name)}"`);
   const result = await import(`data:text/javascript;base64,${Buffer.from(code).toString("base64")}`);
-  const {page, experience, projects, research, education, skillGroups, openSource, navLinks, profile} = result;
+  const {page, experience, projects, research, education, skillGroups, openSource, openSourceGroups, navLinks, profile} = result;
   assert.equal((page.match(/<h1\b/g) ?? []).length, 1);
   assert.match(page, /Software Engineer - AI and Distributed Systems/);
   assert.doesNotMatch(page, /Software, systems &amp; applied AI|class="hero-lead"|class="focus-grid"/);
@@ -79,7 +79,8 @@ test("portfolio renders complete navigation, current facts, and accessible proje
   assert.match(page, /Clearance Eligible/);
   assert.doesNotMatch(page, /Remote · Hybrid · On site/);
   assert.equal((page.match(/class="experience-toggle"/g) ?? []).length, experience.length);
-  assert.equal((page.match(/<details>/g) ?? []).length, experience.length);
+  assert.equal((page.match(/<details>/g) ?? []).length, experience.length + openSourceGroups.length);
+  assert.equal((page.match(/class="org-context-card experience-toggle"/g) ?? []).length, openSourceGroups.length);
   assert.doesNotMatch(page, /<details open/);
   assert.doesNotMatch(page, /theme-toggle|Switch to dark mode/);
   assert.equal(profile.location, "California, USA");

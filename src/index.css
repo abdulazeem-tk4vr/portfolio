@@ -163,6 +163,16 @@
   .experience-toggle::-webkit-details-marker { display: none; }
   .experience-chevron { flex-shrink: 0; color: var(--link); transition: transform .2s; }
   details[open] .experience-chevron { transform: rotate(180deg); }
+  .experience-card details, .opensource-group details { interpolate-size: allow-keywords; }
+  .experience-card details::details-content, .opensource-group details::details-content {
+    height: 0;
+    overflow: clip;
+    transition: height .3s ease, content-visibility .3s allow-discrete;
+  }
+  .experience-card details[open]::details-content, .opensource-group details[open]::details-content { height: auto; }
+  @media (prefers-reduced-motion: reduce) {
+    .experience-card details::details-content, .opensource-group details::details-content { transition: none; }
+  }
   .experience-company { margin-top: 5px; font-size: 18px; color: var(--ink); }
 
   .experience-card { min-width: 0; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
