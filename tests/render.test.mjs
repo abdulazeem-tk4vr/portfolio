@@ -43,7 +43,7 @@ test("portfolio renders complete navigation, current facts, and accessible proje
   assert.match(page, /Apr 2026.*Sep 2026/);
   assert.doesNotMatch(page, /education-status/);
   assert.match(page, /Launch starship/);
-  assert.match(page, /demo only/);
+  assert.match(page, /class="galaxy-mode-hero-eyebrow">Stellar recon<\/span>/);
   assert.doesNotMatch(page, /What I&#x27;m doing now|Recent work|Explore my work/);
   assert.match(page, /id="certifications"/);
   assert.match(page, /aria-label="Open section menu" aria-expanded="false" aria-controls="section-navigation"/);

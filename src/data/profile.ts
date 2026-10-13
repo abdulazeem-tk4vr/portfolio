@@ -244,7 +244,7 @@ export const openSourceGroups: OpenSourceGroup[] = [
     org: "Shardeum",
     logo: organizationLogos["Shardeum"],
     url: "https://shardeum.org",
-    stage: "Mainnet L1",
+    stage: "Layer 1 Blockchain",
     repos: [
       {
         name: "lib-net",
@@ -295,7 +295,7 @@ export const openSourceGroups: OpenSourceGroup[] = [
     org: "Liberdus",
     logo: organizationLogos["Liberdus"],
     url: "https://liberdus.com",
-    stage: "Mainnet \u00b7 Messaging",
+    stage: "P2P Messaging and Payments",
     repos: [
       {
         name: "Liberdus TSS Signer",

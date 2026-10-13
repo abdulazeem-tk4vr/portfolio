@@ -165,6 +165,7 @@
   details[open] .experience-chevron { transform: rotate(180deg); }
   .experience-card details, .opensource-group details { interpolate-size: allow-keywords; }
   .experience-card details::details-content, .opensource-group details::details-content {
+    display: flow-root;
     height: 0;
     overflow: clip;
     transition: height .3s ease, content-visibility .3s allow-discrete;

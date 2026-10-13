@@ -46,7 +46,7 @@ export function Hero() {
           <span className="galaxy-mode-hero-scanlines" aria-hidden="true" />
           <span className="galaxy-mode-hero-inner">
             <span className="galaxy-mode-hero-description">
-            <span className="galaxy-mode-hero-eyebrow">Stellar recon · demo only</span>
+            <span className="galaxy-mode-hero-eyebrow">Stellar recon</span>
             <span className="galaxy-mode-hero-title">Galaxy Mode</span>
             <span className="galaxy-mode-hero-copy">Pilot a starship, scan planets, and fire lasers. A small game inspired by the portfolio.</span>
             </span>
