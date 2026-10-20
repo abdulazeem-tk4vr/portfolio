@@ -2,6 +2,11 @@
   command = "npm run build"
   publish = "dist"
 
+[[headers]]
+  for = "/new-grad.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+
 [[redirects]]
   from = "/AbdulAzeemShaik_CV.pdf"
   to = "/AbdulAzeemShaik_Resume.pdf"
